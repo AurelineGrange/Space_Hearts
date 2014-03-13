@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-SpaceHearts::Application.config.secret_key_base = 'edbf4791e32606be15a5d8d770e52bcd2762deaa6a5846eea813c0a7795266bbd800bc51f67177ce3b4c37f29699c1265537d7bf04af677640ff908a51ea5f68'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+SpaceHearts::Application.config.secret_key_base = secure_token
