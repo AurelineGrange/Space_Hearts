@@ -10,4 +10,8 @@ class StaticPagesController < ApplicationController
 
   def About
   end
+
+  def Home
+  end
+
 end

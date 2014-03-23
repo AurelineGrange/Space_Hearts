@@ -1,0 +1,20 @@
+<nav class="navbar navbar-default  navbar-fixed-top" role="navigation" id="header">
+
+  <div class="container-fluid">
+    <%= link_to "Heart Space Mission", root_path, id: "logo" %>
+    <div class="btn-group pull-right">
+      <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id="btn-menu">
+        <span class="glyphicon glyphicon-align-justify"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu" id="btn-menu-dropdown">
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Sign in", '#' %></li>
+        <li><%= link_to "Sign up", '#' %></li>
+        <li><%= link_to "About us", about_path %></li>
+        <li><%= link_to "Pricing", pricing_path %></li>
+        <li><%= link_to "Help", help_path %></li>
+        <li><%= link_to "Contact", contact_path %></li>
+      </ul>
+    </div>
+  </div>
+</nav>

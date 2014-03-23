@@ -1,0 +1,176 @@
+@import "bootstrap";
+
+/* ____________________________________ */
+/* MAIN COLORS */
+$color1: #2f3238;
+$color2: #26292e;
+$color3: #de5e60;
+$colorText1: #7f8289;
+$colorText2: #fff;
+
+
+/* ____________________________________ */
+/* FONT */
+/* font-family: 'Quicksand', sans-serif; */
+
+
+
+/* ____________________________________ */
+/* UNIVERSAL */
+
+html {
+  overflow: scroll;
+}
+
+body {
+  padding-top:  60px;
+  background-color: $color1;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+}
+
+.center h1 {
+  margin-bottom: 10px;
+}
+
+
+/* ____________________________________ */
+/* TYPOGRAPHY */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 400;
+}
+
+h1 {
+  padding-top: 30px;
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: $color3;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: $colorText1;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+
+/* ____________________________________ */
+/* BUTTON FONT */
+
+.btn {
+  font-family: 'Quicksand', sans-serif !important;
+  font-size: 400 !important;
+  background-color: $color3 !important;
+  border-color: $color3 !important;
+  color: $color2 !important;
+  &:hover {
+    font-weight: 700;
+  }
+}
+
+
+
+/* ____________________________________ */
+/* HEADER */
+
+#logo {
+  float: none;
+  margin: 10px;
+  font-size: 1.7em;
+  color: $color3;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 2px;
+  font-family: 'Quicksand', sans-serif;
+  &:hover {
+    color: $colorText1;
+    text-decoration: none;
+  }
+}
+
+
+#header {
+  background-color: $color2;
+  border-bottom-color: $color2;
+  height: 70px;
+  padding-top: 20px;
+  /*text-align: center;*/
+}
+
+#btn-menu {
+  color: $color3 !important;
+  background-color: $color1 !important;
+  border-color: $color1 !important;
+}
+
+#btn-menu-dropdown {
+  background-color: $color1 !important;
+  border-color: $color1 !important;
+  a {
+    color: $color3 !important;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
+    &:hover {
+      font-weight: 700;
+      background-color: $color2 !important;
+    }
+  }
+}
+
+
+/* ____________________________________ */
+/* FOOTER */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  color: $color2;
+  background-color: $color2;
+  height: 50px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  a {
+    color: $colorText1;
+    &:hover {
+      color: $color3;
+      text-decoration: none;
+    }
+  }
+}
+
+
+footer ul {
+  float: center;
+  list-style: none;
+  li {
+    float: right;
+    margin-right: 20px;
+  }
+}
+
