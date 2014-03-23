@@ -4,28 +4,28 @@ describe StaticPagesController do
 
   describe "GET 'Help'" do
     it "returns http success" do
-      get 'Help'
+      get 'help'
       response.should be_success
     end
   end
 
   describe "GET 'Contact'" do
     it "returns http success" do
-      get 'Contact'
+      get 'contact'
       response.should be_success
     end
   end
 
   describe "GET 'Pricing'" do
     it "returns http success" do
-      get 'Pricing'
+      get 'pricing'
       response.should be_success
     end
   end
 
   describe "GET 'About'" do
     it "returns http success" do
-      get 'About'
+      get 'about'
       response.should be_success
     end
   end
