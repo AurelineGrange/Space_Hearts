@@ -22,5 +22,8 @@ module SpaceHearts
 
     # For Bootstrap to function correctly
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+
+    # To remove the message when running the tests
+    I18n.enforce_available_locales = true
   end
 end
