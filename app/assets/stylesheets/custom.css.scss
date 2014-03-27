@@ -174,4 +174,78 @@ footer ul {
   }
 }
 
+/* ____________________________________ */
+/* MIXINS, VARIABLES, ETC. */
 
+$grayMediumLight: #eaeaea;
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+/* ____________________________________ */
+/* MISCELLANEOUS */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+.centered
+{
+  text-align:center;
+}
+
+/* ____________________________________ */
+/* FORMS */
+
+input {
+  font-family: 'Quicksand', sans-serif;
+  margin-bottom: 15px;
+  @include box_sizing;
+
+}
+
+#error_explanation {
+  color: $colorText1;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  ul {
+    list-style: none;
+    margin: 0 0 18px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .form-group;
+  @extend .has-error;
+  @extend .has-warning;
+  @extend  .has-success;
+}
+
+.alert{
+  color: $color1;
+  background-color: $colorText1;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.alert2{
+  color: $color1;
+  background-color: $color3;
+  border-color: $color3;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  margin-top: 25px;
+}
