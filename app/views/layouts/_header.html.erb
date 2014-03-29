@@ -2,20 +2,33 @@
 
   <div class="container-fluid">
     <%= link_to "Heart Space Mission", root_path, id: "logo" %>
+    <% if signed_in? %>
     <div class="btn-group pull-right">
       <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id="btn-menu">
         <span class="glyphicon glyphicon-align-justify"></span>
       </button>
       <ul class="dropdown-menu" role="menu" id="btn-menu-dropdown">
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Sign in", signin_path %></li>
-        <li><%= link_to "Sign up", signup_path %></li>
-        <li><%= link_to "About us", about_path %></li>
-        <li><%= link_to "Pricing", pricing_path %></li>
-        <li><%= link_to "Help", help_path %></li>
-        <li><%= link_to "Contact", contact_path %></li>
+        <li><%= link_to "My account", current_user %></li>
+        <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
       </ul>
     </div>
-  </div>
+        <% else %>
+        <div class="btn-group pull-right">
+          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id="btn-menu">
+            <span class="glyphicon glyphicon-align-justify"></span>
+          </button>
+          <ul class="dropdown-menu" role="menu" id="btn-menu-dropdown">
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Sign in", signin_path %></li>
+            <li><%= link_to "Sign up", signup_path %></li>
+            <li><%= link_to "About us", about_path %></li>
+            <li><%= link_to "Pricing", pricing_path %></li>
+            <li><%= link_to "Help", help_path %></li>
+            <li><%= link_to "Contact", contact_path %></li>
+          </ul>
+        </div>
+    <% end %>
+
+        </div>
 
 </nav>
