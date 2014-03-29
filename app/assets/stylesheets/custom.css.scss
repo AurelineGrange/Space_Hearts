@@ -213,8 +213,12 @@ $grayMediumLight: #eaeaea;
 input {
   font-family: 'Quicksand', sans-serif;
   margin-bottom: 15px;
+  color: $color3;
   @include box_sizing;
+}
 
+.form-control {
+  color: $color3;
 }
 
 #error_explanation {
@@ -248,4 +252,22 @@ input {
   font-family: 'Quicksand', sans-serif;
   font-weight: 700;
   margin-top: 25px;
+}
+
+#button-signup-from-signin {
+  margin-left: 5px;
+  background-color: $colorText1 !important;
+  border-color: $colorText1 !important;
+
+}
+
+
+input:-webkit-autofill {
+  -webkit-box-shadow:0 0 0 50px white inset; /* Change the color to your own background color */
+  -webkit-text-fill-color: $color3;
+}
+
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0 50px white inset;
+  -webkit-text-fill-color: $color3;
 }
