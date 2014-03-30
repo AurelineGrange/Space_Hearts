@@ -9,6 +9,7 @@
       </button>
       <ul class="dropdown-menu" role="menu" id="btn-menu-dropdown">
         <li><%= link_to "My account", current_user %></li>
+        <li><%= link_to "Settings", edit_user_path(current_user) %></li>
         <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
       </ul>
     </div>
