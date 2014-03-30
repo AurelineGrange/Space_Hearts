@@ -12,6 +12,7 @@ class StaticPagesController < ApplicationController
   end
 
   def home
+    @home_search= String.new
   end
 
 end

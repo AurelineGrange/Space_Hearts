@@ -1,0 +1,14 @@
+<%= form_for(@micropost) do |f| %>
+    <%= f.text_area :content, value: "Here is a love message inspiration you can freely edit...\n\nI want to give you my heart and soul. I don't care about anything else in the world because I am in love with you. I love you. I am getting butterflies in my stomach just at the thought of seeing you again. You have made all of my dreams come true and I can't imagine spending time with anyone else.\n\nI could not ask for more. I am the luckiest person in the world...", class: 'form-control', rows: "20", placeholder: "Your love message" %>
+    <%= f.text_area :extra, value: "Love always,", class: 'form-control', placeholder: "Some more sweet words..." %>
+    <%= f.text_area :name1, class: 'form-control', placeholder: "Your love's name" %>
+    <div class="centered" style="font-size: 30px; color: #fff; font-family: quicksand;">&amp;</div>
+    <%= f.text_area :name2, class: 'form-control', placeholder: "Your name" %>
+
+  <div class="centered" style="display: inline-blocks;">
+  <%= f.submit "Reserve", class: "btn btn-default pull-right", id: "btn-reserve-preview"%>
+  <%= f.text_field :secret_key, class: 'form-control pull-left', placeholder: "Your secret key..." %>
+  </div>
+  
+
+<% end %>
