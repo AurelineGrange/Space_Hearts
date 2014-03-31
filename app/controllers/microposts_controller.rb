@@ -11,8 +11,9 @@
  		@micropost = Micropost.new(micropost_params)
  		if @micropost.save
  			flash[:success] = "Micropost created!"
- 			redirect_to root_url
+ 			redirect_to signup_path
  		else
+ 			@home_search= String.new
  			render 'static_pages/home'
  		end
  	end
@@ -26,6 +27,15 @@
 
  	def index
  	end
+
+ 	private
+
+ 	def micropost_params
+		params.require(:micropost).permit(:content, :name1, :name2, :extra, :send_email_to_partner, :send_paper_copy, :launch_into_space, :user_id, :secret_key)
+	end
+
+
+
 
  end
 

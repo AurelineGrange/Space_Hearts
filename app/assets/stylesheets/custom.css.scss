@@ -1,18 +1,19 @@
 @import "bootstrap";
 
 /* MAIN COLORS */
+  /* Color Bar */
 /* FONT */
 /* UNIVERSAL */
   /* Users index */
   /* microposts */
 /* TYPOGRAPHY */
-/* BUTTON FONT */
+/* BUTTONS */
 /* HEADER */
 /* FOOTER */
 /* MIXINS, VARIABLES, ETC. */
 /* MISCELLANEOUS */
 /* FORMS */
-
+/* HOMEPAGE */
 
 
 
@@ -26,6 +27,130 @@ $color3: #de5e60;
 $colorText1: #7f8289;
 $colorText2: #fff;
 $grayLight: #bbb;
+
+
+/* === COLOR BAR === */
+
+#ColorBar {
+    width: 100%;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+}
+
+#ColorBar div {
+    height: 10px;
+    width: 8.3333333%;
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+@media(max-width: 480px) {
+    #ColorBar {
+        width: 103%;
+    }
+}
+
+
+.kim-yellow {
+    background: #f2ea00;
+}
+
+.kim-amber {
+    background: #ebce13;
+}
+
+.kim-orange {
+    background: #f0aa14;
+}
+
+.kim-sunset {
+    background: #f08630;
+}
+
+.kim-red {
+    background: #f07a60;
+}
+
+.kim-fuchsia {
+    background: #ee78f0;
+}
+
+.kim-purple {
+    background: #bd90f0;
+}
+
+.kim-indigo {
+    background: #9092f0;
+}
+
+.kim-blue {
+    background: #7fbadc;
+}
+
+.kim-aqua {
+    background: #90f0e3;
+}
+
+.kim-green {
+    background: #91d271;
+}
+
+.kim-lime {
+    background: #c5f060;
+}
+
+.kim-yellow-color {
+    color: #f2ea00;
+}
+
+.kim-amber-color {
+    color: #ebce13;
+}
+
+.kim-orange-color {
+    color: #f0aa14;
+}
+
+.kim-sunset-color {
+    color: #f08630;
+}
+
+.kim-red-color {
+    color: #f07a60;
+}
+
+.kim-fuchsia-color {
+    color: #ee78f0;
+}
+
+.kim-purple-color {
+    color: #bd90f0;
+}
+
+.kim-indigo-color {
+    color: #9092f0;
+}
+
+.kim-blue-color {
+    color: #7fbadc;
+}
+
+.kim-aqua-color {
+    color: #90f0e3;
+}
+
+.kim-green-color {
+    color: #91d271;
+}
+
+.kim-lime-color {
+    color: #c5f060;
+}
 
 
 /* ____________________________________ */
@@ -47,7 +172,9 @@ body {
 }
 
 section {
-  overflow: auto;
+  padding-top:80px;
+  padding-bottom:80px;
+  overflow: hidden;
 }
 
 textarea {
@@ -152,7 +279,7 @@ p {
 
 
 /* ____________________________________ */
-/* BUTTON FONT */
+/* BUTTONS */
 
 .btn {
   font-family: 'Quicksand', sans-serif !important;
@@ -164,6 +291,21 @@ p {
     font-weight: 700;
   }
 }
+
+.bigger-hover{
+    -moz-transition: all 400ms ease;
+    -webkit-transition: all 400ms ease;
+    -o-transition: all 400ms ease;
+    transition: all 400ms ease;
+}
+
+.bigger-hover:hover{
+   -moz-transform: scale(1.1) translate(0px);
+    -webkit-transform: scale(1.1) translate(0px);
+    -o-transform: scale(1.1) translate(0px);
+    transform: scale(1.1) translate(0px);
+}
+
 
 
 #btn-reserve-preview {
@@ -191,7 +333,66 @@ p {
     transform: scale(1.1) translate(0px);
 }
 
+#btn-choice-vip {
+  font-family: 'Quicksand', sans-serif !important;
+  font-size: 40px !important;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  padding: 40px;
+  background-color: $color2 !important;
+  border-color: $color3 !important;
+  color: #fff !important;
+  text-align: center;
+  height: auto;
+  width: auto;
+  font-weight: 300;
+}
 
+#btn-choice-vip:hover {
+  color: $color3 !important;
+  }
+
+
+
+#btn-choice-space {
+  font-family: 'Quicksand', sans-serif !important;
+  font-size: 40px !important;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 40px;
+  background-color: $color2 !important;
+  border-color: $color3 !important;
+  color: #fff !important;
+  text-align: center;
+  height: auto;
+  width: auto;
+  font-weight: 400;
+}
+
+
+#btn-choice-space:hover {
+    color: $color3 !important;
+}
+
+#btn-choice-web {
+  font-family: 'Quicksand', sans-serif !important;
+  font-size: 40px !important;
+  margin-top: 0px;
+  margin-bottom: 40px;
+  padding: 40px;
+  background-color: $color2 !important;
+  border-color: $color3 !important;
+  color: #fff !important;
+  text-align: center;
+  height: auto;
+  width: auto;
+  font-weight: 400;
+}
+
+
+#btn-choice-web:hover {
+    color: $color3 !important;
+}
 
 
 
@@ -624,3 +825,21 @@ input:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0 50px white inset;
   -webkit-text-fill-color: $color3;
 }
+
+
+/* ____________________________________ */
+/* HOMEPAGE */
+
+
+
+
+
+
+
+
+
+
+
+
+
+

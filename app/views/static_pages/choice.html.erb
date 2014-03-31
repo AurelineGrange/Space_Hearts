@@ -1,0 +1,69 @@
+
+<section id="choice-page-main-title">
+  <div class="center hero-unit">
+    <h1 id="home-title">Love Space Mission</h1>
+
+    <h2>
+      An eternal proof of your love that will be shown here and sent into space... </br> Choose how you want to delight your partner!
+    </h2>
+
+    <!-- <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %> -->
+
+  </section>
+  <section id="choice-page-vip-section">
+
+
+    <!-- VIP customers start by admiring their possibilities on the page, then can login, and after that chose. -->
+
+    <div class="centered bigger-hover" style="margin-top: 60px; color: $color3 !important;">
+      <div class="centered">
+        <%= link_to "Fully personalized gift", vip_path, class: "btn btn-large btn-primary", id: "btn-choice-vip" %>
+      </div>
+      <%= image_tag "heart_small.png", style: "width: 250px; height: auto; margin-top: -580px;", class: "" %>
+      <p style="color: #fff">jvfdjnvijdf k jefkjnkdjvns dfkjvndkflsjvnkds kl djfnvkldjsnf kldfjnvksdljvnd dskljvndklsjnvdkj kdfjnvkdfjvn dkfjnvl </p>
+    </div>
+
+  </section>
+  <section id="choice-page-space-section">
+
+    <div class="centered bigger-hover" style="margin-top: 60px; color: $color3 !important;">
+      <%= form_for(@user) do |f| %>
+      <%= f.hidden_field :name, value: "temporary" %>
+      <%= f.hidden_field :email, value: (1_000 + Random.rand(8_999 - 1_000)).to_s << "@example.com" %>
+      <%= f.hidden_field :password, value: "password" %>
+      <%= f.hidden_field :password_confirmation, value: "password" %>
+      <%= f.hidden_field :redirect_to, value: "choice-space" %>
+      <div class="centered">
+        <%= f.submit "Eternalize your love into space", class: "btn btn-large btn-primary", id: "btn-choice-space" %>
+      </div>
+      <%= image_tag "heart_small.png", style: "width: 150px; height: auto; margin-top: -420px;", class: "" %>
+      <% end %>
+      <p style="color: #fff">jvfdjnvijdf k jefkjnkdjvns dfkjvndkflsjvnkds kl djfnvkldjsnf kldfjnvksdljvnd dskljvndklsjnvdkj kdfjnvkdfjvn dkfjnvl </p>
+    </div>
+
+  </section>
+  <section id="choice-page-web-section">
+
+    <div class="centered bigger-hover" style="margin-top: 60px; color: $color3 !important;">
+      <%= form_for(@user) do |f| %>
+      <%= f.hidden_field :name, value: "temporary" %>
+      <%= f.hidden_field :email, value: (1_000 + Random.rand(8_999 - 1_000)).to_s << "@example.com" %>
+      <%= f.hidden_field :password, value: "password" %>
+      <%= f.hidden_field :password_confirmation, value: "password" %>
+      <%= f.hidden_field :redirect_to, value: "choice-web" %>
+      <div class="centered">
+        <%= f.submit "Offer a Heart on the page", class: "btn btn-large btn-primary", id: "btn-choice-web" %>
+      </div>
+      <%= image_tag "heart_small.png", style: "width: 100px; height: auto; margin-top: -300px;", class: "" %>
+      <% end %>
+      <p style="color: #fff">jvfdjnvijdf k jefkjnkdjvns dfkjvndkflsjvnkds kl djfnvkldjsnf kldfjnvksdljvnd dskljvndklsjnvdkj kdfjnvkdfjvn dkfjnvl </p>
+    </div>
+
+
+
+    <!-- 
+    <%= link_to "Eternalize your love into space", micropost_path, class: "btn btn-large btn-primary", id: "btn-choice-space" %>
+    <%= link_to "Offer a Heart on the page", micropost_path, class: "btn btn-large btn-primary", id: "btn-choice-web" %>
+  -->
+
+</section>

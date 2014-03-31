@@ -13,6 +13,8 @@ SpaceHearts::Application.routes.draw do
   match '/help', to: 'static_pages#help', via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/pricing', to: 'static_pages#pricing', via: 'get'
+  match '/choice', to: 'static_pages#choice', via: 'get'
+  match '/vip', to: 'static_pages#vip', via: 'get'
 
 
 

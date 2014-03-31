@@ -9,11 +9,27 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)    # Not the final implementation!
+    @params= user_params
+    @user = User.new    # Not the final implementation!
+    @user.name=@params[:name]
+    @user.email=@params[:email]
+    @user.password=@params[:password]
+    @user.password_confirmation=@params[:password_confirmation]
+    if @user.email=="jc.gasche@mac.com" || @user.email=="aurelinegrange@me.com"
+      @user.update_attributes(admin: true)
+    end
     if @user.save
       sign_in @user
-      flash[:success] = "Welcome to the Heart Space Mission !"
+      #flash[:success] = "Welcome to the Heart Space Mission !"
+      if @params[:redirect_to]== "choice-vip"
+        redirect_to vip_path
+      elsif @params[:redirect_to]== "choice-space"
+        redirect_to micropost_path
+      elsif @params[:redirect_to]== "choice-web"
+        redirect_to micropost_path
+      else
       redirect_to @user
+      end
     else
       render 'new'
     end
@@ -39,6 +55,9 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes(user_params)
+      if @user.email=="jc.gasche@mac.com" || @user.email=="aurelinegrange@me.com"
+        @user.update_attributes(admin: true)
+      end
       flash[:success] = "Profile updated"
       redirect_to @user
     else
@@ -49,7 +68,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :redirect_to)
   end
 
   # Before filters
@@ -57,7 +76,7 @@ class UsersController < ApplicationController
   def signed_in_user
     unless signed_in?
       store_location
-    redirect_to signin_url, notice: "Please sign in !"
+      redirect_to signin_url, notice: "Please sign in !"
       end
   end
 

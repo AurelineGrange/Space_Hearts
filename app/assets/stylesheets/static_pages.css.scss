@@ -1,3 +1,46 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* MAIN COLORS */
+$color1: #2f3238;
+$color2: #26292e;
+$color3: #de5e60;
+$colorText1: #7f8289;
+$colorText2: #fff;
+$grayLight: #bbb;
+
+/*------------ CHOICE PAGE ------------ */
+
+
+#choice-page-main-title{
+	padding-top:80px;
+  	padding-bottom:80px;
+  	background-color: $color2;
+
+}
+
+
+
+#choice-page-vip-section{
+	padding-top:80px;
+  	padding-bottom:80px;
+  	background-color: $color1;
+
+}
+
+
+#choice-page-space-section{
+	padding-top:80px;
+  padding-bottom:80px;
+  background-color: $color2;
+
+}
+
+
+#choice-page-web-section{
+	padding-top:80px;
+  padding-bottom:80px;
+  background-color: $color1;
+
+}

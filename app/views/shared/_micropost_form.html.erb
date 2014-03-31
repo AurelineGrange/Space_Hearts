@@ -7,6 +7,11 @@
 
   <div class="centered" style="display: inline-blocks;">
   <%= f.submit "Reserve", class: "btn btn-default pull-right", id: "btn-reserve-preview"%>
+  <% if signed_in?%>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <% else%>
+  <%= f.hidden_field :user_id, value: Users.find_by_email("temp@lovespacemission.com").id %>
+  <% end %>
   <%= f.text_field :secret_key, class: 'form-control pull-left', placeholder: "Your secret key..." %>
   </div>
   
