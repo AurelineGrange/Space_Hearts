@@ -10,9 +10,9 @@
   <% if signed_in?%>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <% else%>
-  <%= f.hidden_field :user_id, value: Users.find_by_email("temp@lovespacemission.com").id %>
+  <% redirect_to signup_path %>
   <% end %>
-  <%= f.text_field :secret_key, class: 'form-control pull-left', placeholder: "Your secret key..." %>
+  <%= f.text_field :secret_key, class: 'form-control pull-left', value: random_name, placeholder: "Your secret key..." %>
   </div>
   
 
