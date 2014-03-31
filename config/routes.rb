@@ -5,16 +5,23 @@ SpaceHearts::Application.routes.draw do
   resources :microposts, only: [:create]
   root 'static_pages#home'
 
-  match '/signup', to: 'users#new', via: 'get'
-  match '/signin', to: 'sessions#new', via: 'get'
-  match '/micropost', to: 'microposts#new', via: 'get'
-  match '/signout', to: 'sessions#destroy', via: 'delete'
-  match '/about', to: 'static_pages#about', via: 'get'
-  match '/help', to: 'static_pages#help', via: 'get'
-  match '/contact', to: 'static_pages#contact', via: 'get'
-  match '/pricing', to: 'static_pages#pricing', via: 'get'
-  match '/choice', to: 'static_pages#choice', via: 'get'
-  match '/vip', to: 'static_pages#vip', via: 'get'
+  match '/signout',         to: 'sessions#destroy',           via: 'delete'
+  match '/about',           to: 'static_pages#about',         via: 'get'
+  match '/help',            to: 'static_pages#help',          via: 'get'
+  match '/contact',         to: 'static_pages#contact',       via: 'get'
+  match '/pricing',         to: 'static_pages#pricing',       via: 'get'
+  match '/signup',          to: 'users#new',                  via: 'get'
+  match '/signin',          to: 'sessions#new',               via: 'get'
+
+
+  match '/choice',          to: 'static_pages#choice',        via: 'get'
+  match '/vip',             to: 'static_pages#vip',           via: 'get'
+
+  match '/love_letter',     to: 'microposts#new',             via: 'get'
+  match '/configure',       to: 'microposts#chose_web_only',  via: 'get'
+
+  match '/ready_to_launch', to: 'microposts#finalize_order',  via: 'patch'
+
 
 
 

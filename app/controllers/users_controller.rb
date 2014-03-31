@@ -24,9 +24,9 @@ class UsersController < ApplicationController
       if @params[:redirect_to]== "choice-vip"
         redirect_to vip_path
       elsif @params[:redirect_to]== "choice-space"
-        redirect_to micropost_path
+        redirect_to love_letter_path
       elsif @params[:redirect_to]== "choice-web"
-        redirect_to micropost_path
+        redirect_to configure_path
       else
       redirect_to @user
       end

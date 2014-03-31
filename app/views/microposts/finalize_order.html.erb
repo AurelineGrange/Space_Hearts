@@ -1,0 +1,54 @@
+<% provide(:title, "Choose your gift") %>
+<section id="finalize-page-main-title">
+  <div class="center hero-unit">
+    <h1 id="home-title">Love Space Finalize</h1>
+
+    <h2>
+      An eternal proof of your love that will be shown here and sent into space... </br> Choose how you want to delight your partner!
+    </h2>
+
+    <!-- <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %> -->
+
+  </section>
+
+
+  <section id="finalize-page-post">
+    <%= form_for(@micropost) do |f| %> 
+    <%= f.hidden_field :launch_into_space, value: false %> 
+    <%= f.hidden_field :send_email_to_partner, value: false %>        
+    <%= f.hidden_field :send_paper_copy, value: false %>        
+    <%= render 'shared/error_messages', object: f.object %>
+    <div class="centered"><h2>Here is the secret key that you can use to access your heart:</h2>
+     <%= f.text_field :secret_key, class: 'form-control', value: random_key, placeholder: "Your secret key" %>
+     <p> Change for a personalized secret key (+30$) </p>
+   </div>
+   <div class="centered"><h2>Would you like your love to be notified by email?</h2>
+     <%= f.text_field :partner_name, class: 'form-control', placeholder: "Your love's Name" %>
+     <%= f.text_field :partner_email, class: 'form-control', placeholder: "Your love's e-mail" %>
+     <p> Leave the email field blank otherwise </p>
+     <h2>We can send a delicate premium crafted thick-paper copy of your gift to your beloved one !</h2>
+     <p> Receive this luxury good for just 50$ </p>
+     <%= f.text_field :mail_street, class: 'form-control', placeholder: "Street" %>
+     <%= f.text_field :mail_city, class: 'form-control', placeholder: "City" %>
+     <p> Leave the fields blank otherwise </p>
+   </div>
+   <% end %>
+   <div class="centered"><h2>Your coordinates:</h2>
+      <%= form_for(@user) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+
+        <%= f.text_field :name, class: 'form-control', placeholder: "First name" %>
+
+        <%= f.text_field :email, class: 'form-control', placeholder: "Email" %>
+
+        <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
+
+        <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Password confirmation" %>
+        <div class="centered">
+          <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+        </div>
+    <% end %>
+   </div>
+
+
+ </section>

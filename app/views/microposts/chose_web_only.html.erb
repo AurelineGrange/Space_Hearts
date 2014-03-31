@@ -1,0 +1,34 @@
+<% provide(:title, "Offer your Heart") %>
+<section>
+  <div class="col-xs-12 col-sm-12 col-sm-offset-0">
+    <h1 id="preview-title">Offer your Heart</h1>
+  </div> 
+</section>
+<section>
+  <div class="col-xs-12 col-sm-12 col-sm-offset-0">
+    <div class="main-logo" id="heart-preview"> 
+     <%= form_for(@micropost) do |f| %> 
+     <%= f.hidden_field :launch_into_space, value: false %> 
+     <%= f.hidden_field :send_email_to_partner, value: false %>        
+     <%= f.hidden_field :send_paper_copy, value: false %>        
+     <%= render 'shared/error_messages', object: f.object %>
+     <%= f.text_area :content, value: "Here is a love message inspiration you can freely edit...\n\nI want to give you my heart and soul. I don't care about anything else in the world because I am in love with you. I love you. I am getting butterflies in my stomach just at the thought of seeing you again. You have made all of my dreams come true and I can't imagine spending time with anyone else.\n\nI could not ask for more. I am the luckiest person in the world...", class: 'form-control', rows: "20", placeholder: "Your love message" %>
+     <%= f.text_area :extra, value: "Love always,", class: 'form-control', placeholder: "Some more sweet words..." %>
+     <%= f.text_area :name1, class: 'form-control', placeholder: "Your love's name" %>
+     <div class="centered" style="font-size: 30px; color: #fff; font-family: quicksand;">&amp;</div>
+     <%= f.text_area :name2, class: 'form-control', placeholder: "Your name" %>
+
+     <div class="centered" style="display: inline-blocks;">
+      <%= f.submit "Reserve", class: "btn btn-default pull-right", id: "btn-reserve-preview"%>
+      <% if signed_in?%>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <% else%>
+      <% redirect_to signup_path %>
+      <% end %>
+      <%= f.text_field :secret_key, class: 'form-control pull-left', value: random_key, placeholder: "Your secret key..." %>
+    </div>            <%end%>
+  </div>
+</div>
+
+</section>
+
