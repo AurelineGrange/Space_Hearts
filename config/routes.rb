@@ -2,7 +2,7 @@ SpaceHearts::Application.routes.draw do
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :microposts, only: [:create]
+  resources :microposts
   root 'static_pages#home'
 
   match '/signout',         to: 'sessions#destroy',           via: 'delete'
@@ -19,8 +19,11 @@ SpaceHearts::Application.routes.draw do
 
   match '/love_letter',     to: 'microposts#new',             via: 'get'
   match '/configure',       to: 'microposts#chose_web_only',  via: 'get'
+  match '/ready_to_launch', to: 'microposts#finalize_order',  via: 'get'
+  match '/check_finalize',  to: 'microposts#check_finalize',  via: 'patch'
+  match '/last_step',       to: 'microposts#payment',         via: 'get'
 
-  match '/ready_to_launch', to: 'microposts#finalize_order',  via: 'patch'
+  #match '/ready_to_launch', to: 'microposts#finalize_order',  via: 'patch'
 
 
 

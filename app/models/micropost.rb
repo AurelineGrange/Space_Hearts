@@ -10,6 +10,5 @@ class Micropost < ActiveRecord::Base
   validates :name1, presence: true
   validates :name2, presence: true
 
-
 end
 
