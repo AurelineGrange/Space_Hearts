@@ -14,6 +14,7 @@
 /* MISCELLANEOUS */
 /* FORMS */
 /* HOMEPAGE */
+  /* Heart display */
 
 
 
@@ -889,11 +890,62 @@ input:-webkit-autofill:focus {
 /* HOMEPAGE */
 
 
+#home{
+  padding-top:80px;
+    padding-bottom:80px;
+    background-color: $color2;
+}
+
+#home-enter-secret-key{
+  padding-top:20px;
+  padding-bottom:30px;
+  background-color: $color1;
+}
 
 
 
+/* HEART DISPLAY */
+
+#heart-display{
+  padding-top:20px;
+  padding-bottom:80px;
+  background-color: $color2;
+
+  h1{
+    color: $colorText2;
+    font-size: 80px !important;
+    padding-bottom: 50px;
+  }
+}
+
+.heart-display-feed{
+  margin-left:auto;
+  margin-right:auto;
+  width:90%;
+  padding:auto;
+  align: center;
+  float:none
+
+}
 
 
+.heart {
+  background: transparent url('heart_small.png') no-repeat center center;
+  background-size: contain;
+  background-color:transparent;
+  float:left;
+  list-style:none;
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  padding:0;
+  color: #fff;
+  padding-top: 40px;
+  text-align: center;
+  font-family: quicksand;
+  font-weight: 300;
+  font-size: 1.4em;
+}
 
 
 

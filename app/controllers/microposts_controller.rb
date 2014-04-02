@@ -17,18 +17,51 @@
  	end
 
  	def check_finalize
- 		@finalize= finalize_params
- 		@micropost= current_user.microposts.last
- 		unless current_user.microposts.last.secret_key == finalize_params[secret_key]
- 			@micropost.to_pay = @micropost.to_pay + 30 
- 		end
- 		if current_user.microposts.last.update_attributes[finalize_params]
- 			redirect_to last_step_path
- 		else
- 			render 'ready_to_launch'
- 		end
+ 		@finalize = current_user.microposts.last
+ 		@user = current_user
+ 		if @finalize.update_attributes(finalize_params)
+ 			@finalize.to_pay = 0
+ 			@finalize.update_attributes(to_pay: @finalize.standard_price)
+
+ 			#if the user has already signed up with his email, let's merge his accounts
+ 			if user_params[:email].empty?
+ 				#we have an anonymous user
+ 			elsif User.find_by(email: user_params[:email])
+ 				#merge
+ 				@finalize.update_attributes(user_id: User.find_by(email: user_params[:email]).id)
+ 			else
+ 				#update user info normally.
+ 				if @user.update_attributes(user_params)
+					flash[:success] = "Account created"
+				else
+					render 'edit'
+				end
+ 			end
+
+ 			#Now let's go back to our business
+			flash[:success] = "All info updated"
+      		redirect_to last_step_path
+		else
+			render 'ready_to_launch'
+		end
  	end
 
+ 	def payment
+ 		@user=current_user
+ 		@micropost = current_user.microposts.last
+ 	end
+
+
+ 	def display
+	    #secret keys are case insensitive
+	    @heart_item= Micropost.find_by_secret_key(params[:secret_key].downcase)
+	    if @heart_item
+	      #render 'display'
+	    else
+	      flash[:failure] = "The secret key you entered is not valid"
+	      redirect_to root_url
+	    end
+  	end
 
  	def create
  		@micropost = Micropost.new(micropost_params)
@@ -49,13 +82,14 @@
  	end
 
  	def index
+ 		@heart_items= Microposts.all
  	end
 
  	private
 
  	def micropost_params
  		params.require(:micropost).permit(:content, :name1, :name2, :extra, :send_email_to_partner, 
- 			:send_paper_copy, :launch_into_space, :user_id, :secret_key)
+ 			:send_paper_copy, :launch_into_space, :user_id, :secret_key, :assigned_secret)
  	end
 
  	def finalize_params
@@ -65,20 +99,6 @@
 
  	def user_params
  		params.require(:user).permit(:name, :email, :password, :password_confirmation, :redirect_to)
- 	end
-
- 	def standard_price
- 		@price = 0
- 		if self.launch_into_space
- 			@price= 398 + self.to_pay
- 		else
- 			@price= 20 + self.to_pay
- 		end
-
-		unless self.mail_street.empty?
- 			@price= price + 50
- 		end
- 		return @price
  	end
 
  end

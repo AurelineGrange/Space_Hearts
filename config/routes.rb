@@ -13,6 +13,9 @@ SpaceHearts::Application.routes.draw do
   match '/signup',          to: 'users#new',                  via: 'get'
   match '/signin',          to: 'sessions#new',               via: 'get'
 
+  match '/secret',   to: 'static_pages#search_with_secret_key',    via: 'post'
+  match '/secret/:secret_key',   to: 'microposts#display',       via: 'get'
+
 
   match '/choice',          to: 'static_pages#choice',        via: 'get'
   match '/vip',             to: 'static_pages#vip',           via: 'get'

@@ -25,7 +25,9 @@
 				<% else%>
 				<% redirect_to signup_path %>
 				<% end %>
-				<%= f.text_field :secret_key, class: 'form-control pull-left', value: random_key, placeholder: "Your secret key..." %>
+				<% @random_secret= random_key %>
+    		  	<%= f.hidden_field :assigned_secret, value: @random_secret%>
+      			<%= f.hidden_field :secret_key, value: @random_secret%>
 			</div>			<%end%>          
 		</div>
 	</div>

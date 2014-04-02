@@ -1,20 +1,34 @@
 
 <section id="home">
-<div class="center hero-unit">
-  <h1 id="home-title">Love Space Mission</h1>
+  <div class="center hero-unit">
+    <h1 id="home-title">Love Space Mission</h1>
 
+    <h2>
+      An eternal proof of your love that will be shown here and sent into space...
+    </h2>
+
+    <!-- <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %> -->
+
+    <%= link_to "Offer a Heart", choice_path, class: "btn btn-large btn-primary bigger-hover", id: "btn-reserve-preview" %>
+  </section>
+  <section id="home-enter-secret-key">
+    <h1>
+      Or enter your secret key
+    </h1>
+    <%= form_for @home_search, url: { action: "search_with_secret_key"} do |f| %>
+    <%= f.text_field :secret_key, class: 'form-control', placeholder: "Secret key" %>
+    <% end %>
+  </div>
+</section>
+
+
+<section id="heart-display">
+
+  <h1>Heart Wall</h1>
   <h2>
-    An eternal proof of your love that will be shown here and sent into space...
+    Only hearts to be launched in space are displayed here (later all paid hearts will be displayed)
   </h2>
+  <%= render 'shared/heart_display' %>
 
-  <!-- <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %> -->
 
-  <%= link_to "Offer a Heart", choice_path, class: "btn btn-large btn-primary bigger-hover", id: "btn-reserve-preview" %>
-  <h1>
-    Or enter your secret key
-  </h1>
-  <%= form_for(@home_search) do |f| %>
-  <%= f.text_field :secret_key, class: 'form-control', placeholder: "" %>
-  <% end %>
-</div>
 </section>

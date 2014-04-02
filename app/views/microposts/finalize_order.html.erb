@@ -19,7 +19,7 @@
     <div class="centered">
       <h1>Your Secret Key</h1>
       <h2>Here is the secret key that will reveal your heart:</h2>
-      <%= f.text_field :secret_key, class: 'form-control', placeholder: "Your secret key" %>
+      <%= f.text_field :secret_key, class: 'form-control', value: @finalize.assigned_secret, placeholder: "Your secret key" %>
       <p> Change for a personalized secret key (+30$) </p>
     </div>
   </section>
@@ -72,3 +72,4 @@
     <% end %>
   </div>
 </section>
+

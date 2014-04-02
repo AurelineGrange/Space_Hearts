@@ -1,0 +1,35 @@
+
+<% if @heart_item %>
+
+<section id="home">
+	<div class="center hero-unit">
+		<h1 id="home-title">Love Space Mission</h1>
+
+		<% if @heart_item.launch_into_space %>
+		<h2>
+			An eternal proof of your love that will be shown here and sent into space!
+		</h2>
+		<% end %>
+
+		<div class="heart" style="float:none; margin:auto;" id="<%= @heart_item.id %>">
+			<span class="content"><%= @heart_item.name1 %></span>
+			<span class="content">&amp;</span>
+			<span class="content"><%= @heart_item.name2 %></span>
+		</div>
+  <!-- 
+  <span class="content">is going to be launched: <%= @heart_item.launch_into_space.to_s %></span> 
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(@heart_item.created_at) %> ago.
+  </span>
+-->
+<% if current_user.admin %>
+<%= link_to "delete", @heart_item, method: :delete,
+data: { confirm: "You sure?" },
+title: @heart_item.content %>
+<% end %>
+
+<span class="content"><h2><%= @heart_item.content %></h2></span>
+</div>
+
+</section>
+<% end %>
