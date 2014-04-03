@@ -592,7 +592,7 @@ $grayMediumLight: #eaeaea;
 
 #heart-preview {
 
-  background: transparent url("heart_small.png") no-repeat center center;
+  background: transparent image-url("heart_small.png") no-repeat center center;
   min-width: 803px;
   min-height: 741px;
   background-color: $color1;
@@ -930,7 +930,7 @@ input:-webkit-autofill:focus {
 
 
 .heart {
-  background: transparent url('heart_small.png') no-repeat center center;
+  background: transparent image-url('heart_small.png') no-repeat center center;
   background-size: contain;
   background-color:transparent;
   float:left;
