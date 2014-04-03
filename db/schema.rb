@@ -11,31 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140402093417) do
+ActiveRecord::Schema.define(version: 20140403073600) do
 
   create_table "microposts", force: true do |t|
-    t.string   "content"
+    t.text     "content",               limit: 255
     t.integer  "user_id"
-    t.string   "secret_key"
-    t.boolean  "launch_into_space",     default: true
-    t.boolean  "send_email_to_partner", default: false
-    t.boolean  "send_paper_copy",       default: false
-    t.string   "name1"
-    t.string   "name2"
-    t.string   "extra"
+    t.text     "secret_key",            limit: 255
+    t.boolean  "launch_into_space",                 default: true
+    t.boolean  "send_email_to_partner",             default: false
+    t.boolean  "send_paper_copy",                   default: false
+    t.text     "name1",                 limit: 255
+    t.text     "name2",                 limit: 255
+    t.text     "extra",                 limit: 255
     t.integer  "extra_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "partner_name"
-    t.string   "partner_email"
-    t.string   "mail_street"
-    t.string   "mail_street2"
-    t.string   "mail_cp"
-    t.string   "mail_city"
-    t.string   "mail_state"
-    t.string   "mail_country"
+    t.text     "partner_name",          limit: 255
+    t.text     "partner_email",         limit: 255
+    t.text     "mail_street",           limit: 255
+    t.text     "mail_street2",          limit: 255
+    t.text     "mail_cp",               limit: 255
+    t.text     "mail_city",             limit: 255
+    t.text     "mail_state",            limit: 255
+    t.text     "mail_country",          limit: 255
     t.integer  "to_pay"
-    t.string   "assigned_secret"
+    t.text     "assigned_secret",       limit: 255
   end
 
   add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"
