@@ -18,6 +18,7 @@
 
 /* ____________________________________ */
 /* CHROME BUG FIX (fonts not displayed, need to be re-painted)*/
+
 body {
     -webkit-animation-delay: 0.1s;
     -webkit-animation-name: fontfix;
