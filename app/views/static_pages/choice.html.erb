@@ -29,7 +29,7 @@
     <div class="centered bigger-hover" style="margin-top: 60px; color: $color3 !important;">
       <%= form_for(@user) do |f| %>
       <%= f.hidden_field :name, value: "temporary" %>
-      <%= f.hidden_field :email, value: (1_000 + Random.rand(8_999 - 1_000)).to_s << "@example.com" %>
+      <%= f.hidden_field :email, value: (1_000 + Random.rand(10_000_000)).to_s << "@example.com" %>
       <%= f.hidden_field :password, value: "password" %>
       <%= f.hidden_field :password_confirmation, value: "password" %>
       <%= f.hidden_field :redirect_to, value: "choice-space" %>
@@ -47,7 +47,7 @@
     <div class="centered bigger-hover" style="margin-top: 60px; color: $color3 !important;">
       <%= form_for(@user) do |f| %>
       <%= f.hidden_field :name, value: "temporary" %>
-      <%= f.hidden_field :email, value: (1_000 + Random.rand(8_999 - 1_000)).to_s << "@example.com" %>
+      <%= f.hidden_field :email, value: (1_000 + Random.rand(10_000_000)).to_s << "@example.com" %>
       <%= f.hidden_field :password, value: "password" %>
       <%= f.hidden_field :password_confirmation, value: "password" %>
       <%= f.hidden_field :redirect_to, value: "choice-web" %>
