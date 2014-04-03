@@ -70,7 +70,13 @@
  			redirect_to ready_to_launch_path
  		else
  			@home_search= String.new
- 			redirect_to root_url
+ 			if micropost_params[:launch_into_space]
+ 				render 'new'
+ 			elsif !micropost_params[:launch_into_space]
+ 				render 'chose_web_only'
+ 			else
+ 				redirect_to root_url
+ 			end
  		end
  	end
 
