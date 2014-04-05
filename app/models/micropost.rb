@@ -22,7 +22,7 @@ class Micropost < ActiveRecord::Base
       @price= 20 + @price
     end
 
-    unless self.secret_key == self.assigned_secret
+    unless self.secret_key.downcase == self.assigned_secret.downcase
       @price= 30 + @price
     end
 

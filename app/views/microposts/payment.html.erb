@@ -11,6 +11,8 @@
     You owe us <%= @micropost.standard_price.to_s %> $
   </h1>
 
+  <%= render "payment/paypal_standard_heart_button"%>
+
   <span class="content"><h2><%= @micropost.name1 %></h2></span>
   <span class="content"><h2>&amp;</h2></span>
   <span class="content"><h2><%= @micropost.name2 %></h2></span>
