@@ -16,7 +16,6 @@ SpaceHearts::Application.routes.draw do
   match '/secret',   to: 'static_pages#search_with_secret_key',    via: 'post'
   match '/secret/:secret_key',   to: 'microposts#display',       via: 'get'
 
-
   match '/choice',          to: 'static_pages#choice',        via: 'get'
   match '/vip',             to: 'static_pages#vip',           via: 'get'
 
@@ -25,6 +24,9 @@ SpaceHearts::Application.routes.draw do
   match '/ready_to_launch', to: 'microposts#finalize_order',  via: 'get'
   match '/check_finalize',  to: 'microposts#check_finalize',  via: 'patch'
   match '/last_step',       to: 'microposts#payment',         via: 'get'
+
+
+  match '/heart_wall_xml',  to: 'microposts#heart_wall_xml',  via: 'get'
 
   #match '/ready_to_launch', to: 'microposts#finalize_order',  via: 'patch'
 

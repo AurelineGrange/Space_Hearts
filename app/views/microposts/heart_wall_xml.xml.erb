@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<heartwall>
+
+<% if @heart_items.any? %>
+	
+		<% @heart_items.each do |heart_item| %>
+		
+		<heart>
+			<name1><%= heart_item.name1 %></name1>
+			<name2><%= heart_item.name2 %></name2>		
+		</heart>
+
+		<% end %>
+	
+<% end %>
+
+<heartwall>

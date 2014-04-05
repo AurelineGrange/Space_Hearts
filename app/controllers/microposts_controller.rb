@@ -91,6 +91,15 @@
  		@heart_items= Microposts.all
  	end
 
+ 	def heart_wall_xml
+ 		@heart_items= Micropost.where("launch_into_space = ?", true)
+ 		@diminished_heart_items= Array.new
+ 		@heart_items.each do |heart_item|
+ 			@diminished_heart_items.push(heart: [name1: heart_item.name1 , name2: heart_item.name2])
+ 		end
+ 		render xml: @diminished_heart_items
+  	end
+
  	private
 
  	def micropost_params
