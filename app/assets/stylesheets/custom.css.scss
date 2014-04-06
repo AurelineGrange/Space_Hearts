@@ -576,6 +576,7 @@ $grayMediumLight: #eaeaea;
   
   color: #fff !important;
   margin: auto;
+  margin-bottom: 15px;
   border-color: $color3;
   font-size: 18px;
   text-align: center;
@@ -839,6 +840,12 @@ input {
   color: $color3;
   @include box_sizing;
 }
+
+input:-webkit-autofill {
+    -webkit-box-shadow:0 0 0 50px $color2 inset !important;
+    -webkit-text-fill-color: #333;
+}
+
 
 #error_explanation {
   color: $colorText1;
