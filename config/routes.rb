@@ -13,8 +13,8 @@ SpaceHearts::Application.routes.draw do
   match '/signup',          to: 'users#new',                  via: 'get'
   match '/signin',          to: 'sessions#new',               via: 'get'
 
-  match '/secret',   to: 'static_pages#search_with_secret_key',    via: 'post'
-  match '/secret/:secret_key',   to: 'microposts#display',       via: 'get'
+  match '/secret',          to: 'static_pages#search_with_secret_key',    via: 'post'
+  match '/secret/:secret_key',   to: 'microposts#display',    via: 'get'
 
   match '/choice',          to: 'static_pages#choice',        via: 'get'
   match '/vip',             to: 'static_pages#vip',           via: 'get'
@@ -27,6 +27,10 @@ SpaceHearts::Application.routes.draw do
 
 
   match '/heart_wall_xml',  to: 'microposts#heart_wall_xml',  via: 'get'
+
+  %w( 404 422 500).each do |code|
+    get code, :to => "errors#show", :code => code
+  end
 
   #match '/ready_to_launch', to: 'microposts#finalize_order',  via: 'patch'
 
