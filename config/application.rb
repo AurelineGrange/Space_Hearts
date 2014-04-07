@@ -28,8 +28,6 @@ module SpaceHearts
 
     # To customize the error pages
     config.exceptions_app = self.routes
-    config.action_dispatch.rescue_responses.merge!('ApplicationController::UnauthorizedException' => :unauthorized)
-
 
   end
 end

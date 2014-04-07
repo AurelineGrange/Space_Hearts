@@ -26,9 +26,6 @@ class StaticPagesController < ApplicationController
   def vip
   end
 
-  def maintenance
-    render 'errors/maintenance'
-  end
 
   def about
   end
