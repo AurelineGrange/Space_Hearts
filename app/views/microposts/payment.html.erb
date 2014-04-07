@@ -7,26 +7,28 @@
     An eternal proof of your love that will be shown here and sent into space...
   </h2>
 
-  <h1>
-    You owe us <%= @micropost.standard_price.to_s %> $
-  </h1>
-
-  <%= render "payment/paypal_standard_heart_button"%>
+ 
 
   <span class="content"><h2><%= @micropost.name1 %></h2></span>
   <span class="content"><h2>&amp;</h2></span>
   <span class="content"><h2><%= @micropost.name2 %></h2></span>
   <span class="content"><h2><%= @micropost.secret_key %></h2></span>
   <span class="content"><h2>is going to be launched: <%= @micropost.launch_into_space.to_s %></h2></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(@micropost.created_at) %> ago.
-  </span>
   <% if current_user.admin %>
     <%= link_to "delete", @micropost, method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: @micropost.content %>
   <% end %>
   <%= render @micropost%>
+  <%unless @user.name == "temporary" %>
+  <span class="content"><h2>Your login information</h2></span>
   <%= render @user%>
+  <% end %>
 </div>
+
+
+ <h1><%= @micropost.standard_price.to_s %> $</h1>
+
+  <%= render "payment/paypal_standard_heart_button"%>
+  <span class="content"><h2>Your secret key should be functionnal before 24 hours after your checkout.</h2></span>
 </section>

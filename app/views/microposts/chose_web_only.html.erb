@@ -1,15 +1,15 @@
 <% provide(:title, "Offer your Heart") %>
-<section>
+<section id="heart-preview-header">
   <div class="col-xs-12 col-sm-12 col-sm-offset-0">
     <h1 id="preview-title">Offer your Heart</h1>
   </div> 
   
 </section>
-<div class="centered" style="width: 300px; margin: auto;">
+<div class="centered" style="width: 300px; margin: auto">
   <%= form_for(@micropost) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   </div>
-<section>
+<section style="background-color: #2f3238;">
   <div class="col-xs-12 col-sm-12 col-sm-offset-0">
     <div class="main-logo" id="heart-preview"> 
      <%= f.hidden_field :launch_into_space, value: false %> 

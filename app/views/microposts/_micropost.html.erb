@@ -1,17 +1,35 @@
-<div class="heart" style="float:none; margin:auto;" id="<%= @micropost.id %>">
-    <span class="content"><%= @micropost.name1 %></span>
-    <span class="content">&amp;</span>
-    <span class="content"><%= @micropost.name2 %></span>
-    
+
+  <section>
+    <div class="col-xs-12 col-sm-12 col-sm-offset-0">
+      <h1 id="preview-title"><%= @micropost.secret_key.to_s %></h1>
+    </div> 
+
+  </section>
+  <section>
+    <div class="col-xs-12 col-sm-12 col-sm-offset-0">
+      <div class="main-logo" id="heart-preview">       
+       <%= @micropost.content.to_s %>
+       <%= @micropost.extra.to_s %>
+       <%= @micropost.name1.to_s %>
+       <div class="centered" style="font-size: 30px; color: #fff; font-family: quicksand;">&amp;</div>
+       <%= @micropost.name2.to_s %>
+
+     </div>
+   </div>
+
+ </section>
+
+
+
   <!-- 
   <span class="content">is going to be launched: <%= @micropost.launch_into_space.to_s %></span> 
   <span class="timestamp">
     Posted <%= time_ago_in_words(@micropost.created_at) %> ago.
   </span>
 -->
-    <% if current_user.admin %>
-    <%= link_to "delete", @micropost, method: :delete,
-    data: { confirm: "You sure?" },
-    title: @micropost.content %>
-    <% end %>
-  </div>
+<% if current_user.admin %>
+<%= link_to "delete", @micropost, method: :delete,
+data: { confirm: "You sure?" },
+title: @micropost.content %>
+<% end %>
+</div>
