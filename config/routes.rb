@@ -28,6 +28,7 @@ SpaceHearts::Application.routes.draw do
 
   match '/heart_wall_xml',  to: 'microposts#heart_wall_xml',  via: 'get'
 
+  match '/maintenance',     to: 'static_pages#maintenance',   via: 'get'
   %w( 404 422 500).each do |code|
     get code, :to => "errors#show", :code => code
   end
