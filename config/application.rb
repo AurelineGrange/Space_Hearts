@@ -25,5 +25,11 @@ module SpaceHearts
 
     # To remove the message when running the tests
     I18n.enforce_available_locales = true
+
+    # To customize the error pages
+    config.exceptions_app = self.routes
+    config.action_dispatch.rescue_responses.merge!('ApplicationController::UnauthorizedException' => :unauthorized)
+
+
   end
 end
