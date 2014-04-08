@@ -1,30 +1,37 @@
 
 <% if @heart_item %>
 
-  <section id="heart-display-page">
-    <div class="col-xs-12 col-sm-12 col-sm-offset-0">
-      <h1 id="preview-title"><%= @heart_item.secret_key.to_s %></h1>
-      <% if @heart_item.launch_into_space %>
+<section id="heart-display-page">
+	<h1 id="preview-title" style="margin-top: -50px; margin-bottom:10px;"><%= @heart_item.secret_key.to_s %></h1>
+		<% if @heart_item.launch_into_space %>
 		<h2>
 			An eternal proof of your love that will be shown here and rocketed into space!
 		</h2>
+
+		<div class="centered" style="margin-top: 80px; margin-bottom: 80px;">
+			<%= image_tag("rocket.png", style: "width: 20%; margin-left: auto; margin-right: 100px; min-width: 200px;")%>
+			<%= image_tag("orbiting-hearts.png", style: "width: 20%; margin-left: 100px; margin-right: auto; min-width: 200px;")%>
+		</div>
+		<% else %>
+		<h2>
+			An eternal proof of your love that will be shown but kept secret!
+		</h2>
 		<% end %>
-    </div> 
 
-    <div class="col-xs-12 col-sm-12 col-sm-offset-0">
-      	<div class="main-logo" id="heart-display-standard"> 
-      		<div class="centered" id="heart-display-content">      
-	       		<%= simple_format(@heart_item.content) %>
-	       	</div>
-	       	<div class="centered" id="heart-display-extra"><%= @heart_item.extra.to_s %></div>
-	       	<div class="centered" id="heart-display-name1"><%= @heart_item.name1.to_s %></div>
-	       	<div class="centered" style="font-size: 30px; color: #fff; font-family: quicksand;">&amp;</div>
-	       	<div class="centered" id="heart-display-name2"><%= @heart_item.name2.to_s %></div>
+	<div class="col-xs-12 col-sm-12 col-sm-offset-0">
+		<div class="main-logo" id="heart-display-standard"> 
+			<div class="centered" id="heart-display-content">      
+				<%= simple_format(@heart_item.content) %>
+			</div>
+			<div class="centered" id="heart-display-extra"><%= @heart_item.extra.to_s %></div>
+			<div class="centered" id="heart-display-name1"><%= @heart_item.name1.to_s %></div>
+			<div class="centered" style="font-size: 30px; color: #fff; font-family: quicksand;">&amp;</div>
+			<div class="centered" id="heart-display-name2"><%= @heart_item.name2.to_s %></div>
 
-     	</div>
-   </div>
+		</div>
+	</div>
 
- </section>
+</section>
 
 
   <!-- 

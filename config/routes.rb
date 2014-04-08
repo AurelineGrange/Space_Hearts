@@ -29,10 +29,14 @@ SpaceHearts::Application.routes.draw do
   match '/heart_wall_xml',  to: 'microposts#heart_wall_xml',  via: 'get'
 
   match '/maintenance',     to: 'errors#maintenance',   via: 'get'
-  
-  %w( 404 422 500).each do |code|
-    get code, :to => "errors#show", :code => code
-  end
+
+  #match '/404',     to: 'errors#404',   via: 'get'
+  #match '/422',     to: 'errors#422',   via: 'get'
+  #match '/500',     to: 'errors#500',   via: 'get'
+
+  #%w( 404 422 500).each do |code|
+   # get code, :to => "errors#show", :code => code
+  #end
 
   #match '/ready_to_launch', to: 'microposts#finalize_order',  via: 'patch'
 
@@ -93,4 +97,9 @@ SpaceHearts::Application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+
+
+  #Last route in routes.rb
+  match '*a', :to => 'errors#show', via: 'get'
+
 end

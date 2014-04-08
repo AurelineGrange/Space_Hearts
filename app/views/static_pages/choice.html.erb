@@ -13,20 +13,30 @@
   <section id="choice-page-vip-section">
 
 
-    <!-- VIP customers start by admiring their possibilities on the page, then can login, and after that chose. -->
 
-    <div class="centered bigger-hover" style="margin-top: 60px; color: $color3 !important;">
+    <!-- VIP customers start by admiring their possibilities on the page, then can login, and after that chose. -->
+    <div class="centered bigger-hover" style="margin-top: 100px; color: $color3 !important;">
       <div class="centered">
-        <%= link_to "Fully personalized gift", vip_path, class: "btn btn-large btn-primary", id: "btn-choice-vip" %>
+        <%= link_to "VIP fully personalized treat", vip_path, class: "btn btn-large btn-primary", id: "btn-choice-vip" %>
       </div>
-      <%= image_tag "heart_small.png", style: "width: 250px; height: auto; margin-top: -580px;", class: "" %>
+      <%= image_tag "heart_small.png", style: "width: 250px; height: auto; margin-top: -520px;", class: "" %>
     </div>
-    <p style="color: #fff">jvfdjnvijdf k jefkjnkdjvns dfkjvndkflsjvnkds kl djfnvkldjsnf kldfjnvksdljvnd dskljvndklsjnvdkj kdfjnvkdfjvn dkfjnvl </p>
+    <div class="col-xs-0 col-md-2">
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <p class="choice-description">Be one of the exclusive 6 lucky people to engrave your love message on one of our satellite's side ! <br /> Be reserved the most exclusive place on the Heart Wall.</p>
+      <h1>From 3 000 $</h1>
+    </div>
+    <div class="col-xs-12 col-md-5" style= "max-height: 300px;">
+    <%= image_tag("http://www.clker.com/cliparts/S/9/U/L/i/x/diamond.svg", style: "width: 100%; min-width: 300px; margin-top: -80px; margin-bottom: 30px; margin-left:auto; margin-right:auto;")%>
+    </div>
+
+
 
   </section>
   <section id="choice-page-space-section">
 
-    <div class="centered bigger-hover" style="margin-top: 60px; color: $color3 !important;">
+    <div class="centered bigger-hover" style="margin-top: 90px; color: $color3 !important;">
       <%= form_for(@user) do |f| %>
       <%= f.hidden_field :name, value: "temporary" %>
       <%= f.hidden_field :email, value: (1_000 + Random.rand(10_000_000)).to_s << "@example.com" %>
@@ -34,17 +44,27 @@
       <%= f.hidden_field :password_confirmation, value: "password" %>
       <%= f.hidden_field :redirect_to, value: "choice-space" %>
       <div class="centered">
-        <%= f.submit "Eternalize your love into space", class: "btn btn-large btn-primary", id: "btn-choice-space" %>
+        <%= f.submit "Rocket your love into space", class: "btn btn-large btn-primary", id: "btn-choice-space" %>
       </div>
-      <%= image_tag "heart_small.png", style: "width: 150px; height: auto; margin-top: -420px;", class: "" %>
+      <%= image_tag "heart_small.png", style: "width: 150px; height: auto; margin-top: -400px;", class: "" %>
       <% end %>
     </div>
-    <p style="color: #fff">jvfdjnvijdf k jefkjnkdjvns dfkjvndkflsjvnkds kl djfnvkldjsnf kldfjnvksdljvnd dskljvndklsjnvdkj kdfjnvkdfjvn dkfjnvl </p>
+    <div class="col-xs-0 col-md-2">
+    </div>
+    <div class="col-xs-12 col-md-4" style= "max-height: 480px;">
+      <%= image_tag("rocket.png", style: "width: 10%; margin-left: auto; margin-right: 100px; min-width: 200px; margin-top:60px;")%>
+      <%= image_tag("orbiting-hearts.png", style: "width: 10%; margin-left: 150px; margin-right: 10px; min-width: 200px; margin-top: -70px; margin-bottom: 40px;")%>
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <p class="choice-description">Join the spaceship and own one of the 500 Hearts that will be rocketed into space for eternity! <br /> You will be reserved a special place on the Heart Wall !</p>
+      <h1>398 $</h1>
+    </div>
+
 
   </section>
   <section id="choice-page-web-section">
 
-    <div class="centered bigger-hover" style="margin-top: 60px; color: $color3 !important;">
+    <div class="centered bigger-hover" style="margin-top: 70px; color: $color3 !important;">
       <%= form_for(@user) do |f| %>
       <%= f.hidden_field :name, value: "temporary" %>
       <%= f.hidden_field :email, value: (1_000 + Random.rand(10_000_000)).to_s << "@example.com" %>
@@ -52,12 +72,19 @@
       <%= f.hidden_field :password_confirmation, value: "password" %>
       <%= f.hidden_field :redirect_to, value: "choice-web" %>
       <div class="centered">
-        <%= f.submit "Offer a Heart on the page", class: "btn btn-large btn-primary", id: "btn-choice-web" %>
+        <%= f.submit "Eternalize your love on the Heart Wall", class: "btn btn-large btn-primary", id: "btn-choice-web" %>
       </div>
-      <%= image_tag "heart_small.png", style: "width: 100px; height: auto; margin-top: -300px;", class: "" %>
+      <%= image_tag "heart_small.png", style: "width: 100px; height: auto; margin-top: -400px;", class: "" %>
       <% end %>
     </div>
-    <p style="color: #fff">jvfdjnvijdf k jefkjnkdjvns dfkjvndkflsjvnkds kl djfnvkldjsnf kldfjnvksdljvnd dskljvndklsjnvdkj kdfjnvkdfjvn dkfjnvl </p>
+    <div class="col-xs-0 col-md-2">
+    </div>
+    <div class="col-xs-12 col-md-4">
+      <p class="choice-description">Own a space on the Heart Wall and show your love.</p>
+      <h1>Just 20 $</h1>
+    </div>
+    <div class="col-xs-12 col-md-5" style= "max-height: 300px;">
+    <%= image_tag("heart-wall.png", style: "width: 70%; min-width: 300px; margin-top: 0px; margin-bottom: 30px; margin-left: 40px; margin-right:auto;")%>
+    </div>
 
-
-</section>
+  </section>
