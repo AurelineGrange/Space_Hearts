@@ -85,6 +85,9 @@
  	end
 
  	def destroy
+ 		Micropost.find(params[:id]).destroy
+    	flash[:success] = "Post deleted."
+ 		redirect_to admin_pannel_posts_path
  	end
 
  	def index
@@ -99,6 +102,32 @@
  		end
  		render xml: @diminished_heart_items
   	end
+
+
+  	#admin pannel functions
+
+  	def admin_pannel_posts
+		@space_posts= Micropost.where("launch_into_space = ?", true)
+		@web_posts= Micropost.where("launch_into_space = ?", false)
+	end
+
+	def list_space_posts
+		@posts= Micropost.where("launch_into_space = ?", true)
+		respond_to do |format|
+      		format.html { redirect_to admin_pannel_posts_path }
+      		format.js
+    	end
+	end
+
+	def list_web_posts
+		@posts= Micropost.where("launch_into_space = ?", false)
+		respond_to do |format|
+      		format.html { redirect_to admin_pannel_posts_path }
+      		format.js
+    	end	
+    end
+
+    #admin pannel end
 
  	private
 
@@ -115,6 +144,10 @@
  	def user_params
  		params.require(:user).permit(:name, :email, :password, :password_confirmation, :redirect_to)
  	end
+
+ 	def admin_user
+    	redirect_to(root_url) unless current_user.admin?
+  	end
 
  end
 

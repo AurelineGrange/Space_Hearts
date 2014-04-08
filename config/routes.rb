@@ -29,6 +29,11 @@ SpaceHearts::Application.routes.draw do
   match '/heart_wall_xml',  to: 'microposts#heart_wall_xml',  via: 'get'
 
   match '/maintenance',     to: 'errors#maintenance',   via: 'get'
+  match '/admin_pannel_users',to: 'users#admin_pannel_users', via: 'get'
+  match '/admin_pannel_posts',to: 'microposts#admin_pannel_posts',        via: 'get'
+  match '/list_space_posts',to: 'microposts#list_space_posts',via: 'get'
+  match '/list_web_posts',to: 'microposts#list_web_posts',via: 'get'
+
 
   #match '/404',     to: 'errors#404',   via: 'get'
   #match '/422',     to: 'errors#422',   via: 'get'

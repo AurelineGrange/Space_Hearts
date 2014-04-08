@@ -1,0 +1,53 @@
+<% if current_user.admin %>
+<% provide(:title, 'Admin All posts') %>
+
+<section>
+	<h1 id="admin-page-title">All Posts</h1>
+
+<div class="centered">
+	<div class="col-xs-12 col-md-3">
+	</div>
+	<div class="col-xs-12 col-md-1">
+	<%= link_to "All", admin_pannel_posts_path, class: "btn btn-primary", style: "width: 100%;" %>
+	</div>
+	<div class="col-xs-12 col-md-2">
+	    <%= form_for :admin_action, url: { action: "list_space_posts"}, method: :get , 
+	             remote: true do |f| %>
+	  	<%= f.submit "Going to space", class: "btn btn-primary", style: "width: 100%;"%>
+	  	<% end %>
+	</div>
+	<div class="col-xs-12 col-md-2">
+	  	<%= form_for :admin_action, url: { action: "list_web_posts"}, method: :get , 
+	             remote: true do |f| %>
+	  	<%= f.submit "Web-only", class: "btn btn-primary", style: "width: 100%;" %>
+	  	<% end %>
+	</div>
+	<div class="col-xs-12 col-md-1">
+	</div>
+	<div class="col-xs-12 col-md-1">
+	</div>
+</div>
+
+</section>
+
+
+<section>
+<div class="container" id="admin-pannel-content" style="margin-top: -100px;">
+	<section style="margin-top: -60px;">
+		<h2> Going to space </h2>
+		<% @posts = @space_posts %>
+		<%= render partial: "admin_pannel_list"%>
+	</section>
+	<section style="margin-top: -60px;">
+		<h2> Web only: </h2>
+		<% @posts = @web_posts %>
+		<%= render partial: "admin_pannel_list"%>
+	</section>
+</div>
+</section>
+<% end %>
+
+
+
+
+

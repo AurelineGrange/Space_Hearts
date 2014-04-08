@@ -1,0 +1,24 @@
+		<% if @posts.any? %>
+			<div class="admin-pannel-posts">
+				<% @posts.each do |post| %>
+				
+					<ol class="pull-left" id="<%= post.id %>">
+						<li class="content-secret-key"><%= link_to post.secret_key, "/secret/#{post.secret_key.to_s}"%></li>
+						<% if post.launch_into_space? %>
+				  			<li class="content-space">is going to space !</li> 
+				  		<% end %>
+						<li class="content"><%= post.name1 %></li>
+						<li class="content"><%= post.name2 %></li>
+				  		<li class="content">Created <%= time_ago_in_words(post.created_at) %> ago.</li>
+						<% if signed_in? %>
+							<% if current_user.admin? %>
+								<li class="content"><%= link_to "delete", post, method: :delete,
+								data: { confirm: "You sure?" },
+								title: post.content %></li>
+							<% end %>
+						<% end %>
+					</ol>
+
+				<% end %>
+			</div>
+		<% end %>

@@ -65,6 +65,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def admin_pannel_users
+    @users = Users.all
+    @users = Users.paginate(page: params[:page])
+  end
+
   private
 
   def user_params

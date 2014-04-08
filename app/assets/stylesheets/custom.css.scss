@@ -166,6 +166,40 @@ $grayLight: #bbb;
 
 
 /* ____________________________________ */
+/* ADMIN PAGES */
+
+
+.admin-pannel-posts ol{
+  margin: 20px;
+  width: 20%;
+  min-height: 180px;
+  overflow: auto;
+}
+
+
+  .admin-pannel-posts ol li.content{
+  font-family: quicksand !important;
+  font-size: 1em !important;
+  color: #666 !important;
+  }
+  .admin-pannel-posts ol li.content-space{
+  font-family: quicksand !important;
+  font-size: 1.3em !important;
+  color: #91d271 !important;
+  }
+  .admin-pannel-posts ol li.content-secret-key{
+  font-family: quicksand !important;
+  font-size: 1.3em !important;
+  color: #7fbadc !important;
+  a{
+    color: #7fbadc !important;
+  }
+  }
+
+
+
+
+/* ____________________________________ */
 /* FONT */
 /* font-family: 'Quicksand', sans-serif; */
 

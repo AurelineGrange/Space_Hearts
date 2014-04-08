@@ -1,9 +1,14 @@
 
 <li style="list-style:none;width:auto;margin:0;padding:0; color: #fff;">
-  <span class="content"><%= user.name %></span>
-  <span class="content"><%= user.email %></span>
-  <% if current_user.admin? && !current_user?(user) %>
-      | <%= link_to "delete", user, method: :delete,
-                    data: { confirm: "You sure?" } %>
-  <% end %>
+	<% if current_user.admin?%>
+	<span class="content"><%= user.name %></span>
+	<span class="content"><%= user.email %></span>
+	<% if current_user.admin? && !current_user?(user) %>
+	| <%= link_to "delete", user, method: :delete,
+	data: { confirm: "You sure?" } %>
+	<% end %>
+	<% user.microposts.each do |post| %>
+	<%= link_to post.secret_key, post.id %>
+	<% end %>
+	<% end %>
 </li>

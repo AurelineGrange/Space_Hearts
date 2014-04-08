@@ -1,0 +1,11 @@
+<% if current_user.admin? %>
+<% provide(:title, 'Admin All users') %>
+<h1>All users</h1>
+
+
+<ul class="users">
+  <%= render @users %>
+</ul>
+
+
+<% end %>
