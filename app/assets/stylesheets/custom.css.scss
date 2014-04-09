@@ -36,9 +36,11 @@
 $color1: #2f3238;
 $color2: #26292e;
 $color3: #de5e60;
+$color4: #0D679C;
 $colorText1: #7f8289;
 $colorText2: #fff;
 $grayLight: #bbb;
+
 
 
 /* === COLOR BAR === */
@@ -391,6 +393,8 @@ p {
 #home-title{
   color: $colorText2;
   font-size: 80px !important;
+  margin-top: -100px !important;
+  margin-bottom: 30px;
   }
 
 .choice-description{
@@ -420,6 +424,58 @@ p {
     font-weight: 700;
   }
 }
+
+
+#btn-home-info {
+  font-family: 'Quicksand', sans-serif !important;
+  font-size: 40px !important;
+  margin-top: 30px;
+  margin-bottom: -30px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-top: 0px;
+  padding-left: 30px;
+  padding-right: 30px;
+  color: #fff !important;
+  background-color: $color2 !important;
+  border-color: #fff !important;
+  text-align: center;
+  height: 60px;
+  width: auto;
+  font-weight: 400;
+}
+
+#btn-home-info:hover {
+  background-color: $color3 !important;
+  border-color: #fff !important;
+  color: #fff !important;
+}
+
+#btn-home-choice {
+  font-family: 'Quicksand', sans-serif !important;
+  font-size: 40px !important;
+  margin-top: 30px;
+  margin-bottom: -30px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding-top: 0px;
+  padding-left: 30px;
+  padding-right: 30px;
+  color: #fff !important;
+  background-color: $color2 !important;
+  border-color: #fff !important;
+  text-align: center;
+  height: 60px;
+  width: auto;
+  font-weight: 400;
+}
+
+#btn-home-choice:hover {
+  background-color: $color3 !important;
+  border-color: #fff !important;
+  color: #fff !important;
+}
+
 
 .bigger-hover{
     -moz-transition: all 400ms ease;
@@ -933,7 +989,7 @@ a {
   height: 30px;
   color: #fff !important;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 40px;
   margin-bottom: 10px;
   padding-right: 10px;
   padding-left: 10px;
@@ -1047,10 +1103,62 @@ input:-webkit-autofill:focus {
   background-color: $color1;
 }
 
+#home-page-top-middle{
+  background: transparent image-url('heart_small.png') no-repeat center center;
+  background-size: contain;
+  background-color: transparent;
+  margin-top: 100px;
+  height: 100px;
+  color: #fff;
+  text-align: center;
+  font-family: quicksand;
+  font-weight: 300;
+  font-size: 1.4em;
+  overflow: auto;
+}
+
+#home-page-top-left{
+  background: transparent image-url('rocket.png') no-repeat center center;
+  background-size: contain;
+  background-color: transparent;
+  padding: 0px;
+  height: 200px;
+  color: #fff;
+  text-align: center;
+  font-family: quicksand;
+  font-weight: 300;
+  font-size: 1.4em;
+  overflow: auto;
+  h2{
+    margin-top: 180px;
+  }
+  }
+
+
+#home-page-top-right{
+  background: transparent image-url('orbiting-hearts.png') no-repeat center center;
+  background-size: contain;
+  background-color: transparent;
+  padding: 0px;
+  height: 200px;
+  color: #fff;
+  text-align: center;
+  font-family: quicksand;
+  font-weight: 300;
+  font-size: 1.4em;
+  overflow: auto;
+  h2{
+    margin-top: 180px;
+  }
+  }
 
 
 /* HEART DISPLAY */
 
+
+#heart-display{
+  border-top: 2px solid $color1;
+}
 
 #heart-display-page {
 
@@ -1190,6 +1298,7 @@ input:-webkit-autofill:focus {
   margin-left:auto;
   margin-right:auto;
   width:90%;
+  margin-top: 30px;
   padding:auto;
   align: center;
   float:none
@@ -1214,10 +1323,3 @@ input:-webkit-autofill:focus {
   font-weight: 300;
   font-size: 1.4em;
 }
-
-
-
-
-
-
-

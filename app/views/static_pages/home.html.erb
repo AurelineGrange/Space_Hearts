@@ -1,36 +1,49 @@
 
 <section id="home">
+
   <div class="center hero-unit">
-    <h1 id="home-title">Love Space Mission</h1>
+    <div class="container">
+      <div class="row">
+        <h1 id="home-title">Love Space Mission</h1>
+        <div class="col-xs-0 col-sm-4 col-md-4" id="home-page-top-left">
+        </div>
+        <div class="col-xs-0 col-sm-4 col-md-4" id="home-page-top-middle">
+          <%= form_for @home_search, url: { action: "search_with_secret_key"} do |f| %>
+          <%= f.text_field :secret_key, class: 'form-control', placeholder: "Secret key" %>
+          <% end %>
+        </div>
+        <div class="col-xs-0 col-sm-4 col-md-4" id="home-page-top-right">
+        </div>
 
-    <h2>
-      An eternal proof of your love that will be shown here and sent into space...
-    </h2>
+      </div>
+      <div class="row">
+        <div class="col-xs-0 col-sm-4 col-md-4">
+          <h2 class="caption">
+            An eternal proof of your love that will be shown here and sent into space...
+          </h2>
+        </div>
+        <div class="col-xs-0 col-sm-4 col-md-4">
+        </div>
+        <div class="col-xs-0 col-sm-4 col-md-4">
+          <h2 class="caption">
+            An eternal proof of your love that will be shown here and sent into space...
+          </h2>
+        </div>
 
-    <!-- <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %> -->
+      </div>
+    </div>
 
-    <%= link_to "Offer a Heart", choice_path, class: "btn btn-large btn-primary bigger-hover", id: "btn-reserve-preview" %>
-  </section>
-
-
-  <section id="home-enter-secret-key">
-    <h1>
-      Or enter your secret key
-    </h1>
-    <%= form_for @home_search, url: { action: "search_with_secret_key"} do |f| %>
-    <%= f.text_field :secret_key, class: 'form-control', placeholder: "Secret key" %>
-    <% end %>
-  </div>
+    <div class="row">
+    <%= link_to "Know the secret", choice_path, class: "btn btn-primary bigger-hover", id: "btn-home-info" %>
+    <%= link_to "Offer a Heart", choice_path, class: "btn btn-primary bigger-hover", id: "btn-home-choice" %>
+    </div>
+  </div> 
 </section>
 
 
 <section id="heart-display">
-
-  <h1>Heart Wall</h1>
-  <h2>
-    Only hearts to be launched in space are displayed here (later all paid hearts will be displayed)
-  </h2>
-  <%= render 'shared/heart_display' %>
-
+  <div class="container">
+    <%= render 'shared/heart_display' %>
+  </div>
 </section>
 

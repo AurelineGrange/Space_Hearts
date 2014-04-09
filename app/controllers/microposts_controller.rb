@@ -23,11 +23,11 @@
 
  		if @finalize.update_attributes(finalize_params)
  			@finalize.to_pay = @finalize.standard_price
-		    unless self.partner_email.blank?
+		    unless @finalize.partner_email.blank?
 		      @finalize.send_paper_copy =  true
 		    end
 
-		    unless self.mail_street.blank? || self.mail_street2.blank?
+		    unless @finalize.mail_street.blank? || @finalize.mail_street2.blank?
 		      @finalize.send_paper_copy =  true
 		    end
 		    @finalize.save
