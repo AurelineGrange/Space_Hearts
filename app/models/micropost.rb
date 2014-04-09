@@ -26,7 +26,7 @@ class Micropost < ActiveRecord::Base
       @price= 30 + @price
     end
 
-    unless self.mail_street.empty? || self.mail_street2.empty?
+    unless self.mail_street.blank? || self.mail_street2.blank?
       @price=  50 + @price
     end
 

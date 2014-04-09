@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408224630) do
+ActiveRecord::Schema.define(version: 20140409093750) do
 
   create_table "microposts", force: true do |t|
     t.text     "content",               limit: 255
@@ -39,6 +39,9 @@ ActiveRecord::Schema.define(version: 20140408224630) do
     t.boolean  "allow_display"
     t.boolean  "has_been_paid"
     t.boolean  "content_public"
+    t.boolean  "flag"
+    t.boolean  "paper_version_sent"
+    t.boolean  "email_sent"
   end
 
   add_index "microposts", ["user_id", "created_at"], name: "index_microposts_on_user_id_and_created_at"

@@ -1,28 +1,42 @@
 <% if current_user.admin %>
-<% provide(:title, 'Admin All posts') %>
+<% provide(:title, 'Admin Posts Control Pannel') %>
 
 <section>
 	<h1 id="admin-page-title">All Posts</h1>
 
 <div class="centered">
-	<div class="col-xs-12 col-md-3">
+	<div class="col-xs-12 col-md-2">
 	</div>
 	<div class="col-xs-12 col-md-1">
 	<%= link_to "All", admin_pannel_posts_path, class: "btn btn-primary", style: "width: 100%;" %>
 	</div>
 	<div class="col-xs-12 col-md-2">
-	    <%= form_for :admin_action, url: { action: "list_space_posts"}, method: :get , 
+	    <%= form_for :admin_params, url: { action: "admin_sort_posts"}, method: :get , 
 	             remote: true do |f| %>
+	    <%= f.hidden_field :admin_action, value: "list_space_posts" %>
 	  	<%= f.submit "Going to space", class: "btn btn-primary", style: "width: 100%;"%>
 	  	<% end %>
 	</div>
 	<div class="col-xs-12 col-md-2">
-	  	<%= form_for :admin_action, url: { action: "list_web_posts"}, method: :get , 
+	  	<%= form_for :admin_params, url: { action: "admin_sort_posts"}, method: :get , 
 	             remote: true do |f| %>
+	    <%= f.hidden_field :admin_action, value: "list_web_posts" %>
 	  	<%= f.submit "Web-only", class: "btn btn-primary", style: "width: 100%;" %>
 	  	<% end %>
 	</div>
+	<div class="col-xs-12 col-md-2">
+	  	<%= form_for :admin_params, url: { action: "admin_sort_posts"}, method: :get , 
+	             remote: true do |f| %>
+	    <%= f.hidden_field :admin_action, value: "list_action_required_posts" %>
+	  	<%= f.submit "Action required", class: "btn btn-primary", style: "width: 100%;" %>
+	  	<% end %>
+	</div>
 	<div class="col-xs-12 col-md-1">
+		<%= form_for :admin_params, url: { action: "admin_sort_posts"}, method: :get , 
+		             remote: true do |f| %>
+		    <%= f.hidden_field :admin_action, value: "list_flagged_posts" %>
+		  	<%= f.submit "Flags", class: "btn btn-primary", style: "width: 100%;" %>
+		  	<% end %>
 	</div>
 	<div class="col-xs-12 col-md-1">
 	</div>

@@ -34,6 +34,7 @@ SpaceHearts::Application.routes.draw do
   match '/list_space_posts',  to: 'microposts#list_space_posts',    via: 'get'
   match '/list_web_posts',    to: 'microposts#list_web_posts',      via: 'get'
   match '/admin_post_actions',to: 'microposts#admin_post_actions',  via: 'get'
+  match '/admin_sort_posts',  to: 'microposts#admin_sort_posts',    via: 'get'
 
 
   #match '/404',     to: 'errors#404',   via: 'get'

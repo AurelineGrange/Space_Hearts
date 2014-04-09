@@ -8,26 +8,50 @@
 						<% else %>
 						<ol class="pull-left kim-blue">
 						<% end %>
+						<%= form_for :admin_params, url: { action: "admin_post_actions"}, method: :get ,remote: true do |f| %>
+								<%= f.hidden_field :id, value: @post.id %>
+								<%= f.hidden_field :admin_action, value: "toggle_flag" %>
+								<% if @post.flag? %>
+									<%= f.submit "", class: "btn-flagged"%>
+								<% else %>
+									<%= f.submit "", class: "btn-flag"%>
+								<% end %>
+							<% end %>
 						<li class="content-secret-key"><%= link_to @post.secret_key, "/secret/#{@post.secret_key.to_s}"%></li>
 							<% if @post.launch_into_space? %>
 							<li class="content-space">is going to space !</li> 
 							<% end %>
-
+							<li class="content"><%= @post.to_pay%> $</li>
 							<li class="content"><%= form_for :admin_params, url: { action: "admin_post_actions"}, method: :get ,remote: true do |f| %>
 								<%= f.hidden_field :id, value: @post.id %>
 								<%= f.hidden_field :admin_action, value: "toggle_allow_display" %>
-								<%= f.submit "Display: #{@post.allow_display.to_s}", class: "btn-allow-display pull-left"%><% end %>
+								<%= f.submit "Display: #{@post.allow_display.to_s}", class: "btn-admin-tile pull-left"%><% end %>
 							</li>
 
 							<li class="content"><%= form_for :admin_params, url: { action: "admin_post_actions"}, method: :get , remote: true do |f| %>
 								<%= f.hidden_field :id, value: @post.id %>
 								<%= f.hidden_field :admin_action, value: "toggle_payment_state" %>
-								<%= f.submit "Paid: #{@post.has_been_paid.to_s}", class: "btn-allow-display pull-left"%><% end %>
+								<%= f.submit "Paid: #{@post.has_been_paid.to_s}", class: "btn-admin-tile pull-left"%><% end %>
 							</li>
 							
 							<li class="content"><%= @post.name1 %></li>
 							<li class="content"><%= @post.name2 %></li>
 							<li class="content">Created <%= time_ago_in_words(@post.created_at) %> ago.</li>
+							<% if @post.send_email_to_partner? %>
+							<li class="content"><%= form_for :admin_params, url: { action: "admin_post_actions"}, method: :get , remote: true do |f| %>
+								<%= f.hidden_field :id, value: @post.id %>
+								<%= f.hidden_field :admin_action, value: "toggle_email_sent" %>
+								<%= f.submit "e-mail sent: #{@post.email_sent.to_s}", class: "btn-admin-tile pull-left"%><% end %>
+							</li>
+							<% end %>
+							<% if @post.send_paper_copy? %>
+							<li class="content"><%= form_for :admin_params, url: { action: "admin_post_actions"}, method: :get , remote: true do |f| %>
+								<%= f.hidden_field :id, value: @post.id %>
+								<%= f.hidden_field :admin_action, value: "toggle_paper_version_sent" %>
+								<%= f.submit "Paper Version sent: #{@post.paper_version_sent.to_s}", class: "btn-admin-tile pull-left"%><% end %>
+							</li>
+							<% end %>
+
 
 							<li class="content"><%= link_to "delete", @post, method: :delete,
 								data: { confirm: "You sure?" },

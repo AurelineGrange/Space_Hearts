@@ -20,9 +20,17 @@
  	def check_finalize
  		@finalize = current_user.microposts.last
  		@user = current_user
+
  		if @finalize.update_attributes(finalize_params)
- 			@finalize.to_pay = 0
- 			@finalize.update_attributes(to_pay: @finalize.standard_price)
+ 			@finalize.to_pay = @finalize.standard_price
+		    unless self.partner_email.blank?
+		      @finalize.send_paper_copy =  true
+		    end
+
+		    unless self.mail_street.blank? || self.mail_street2.blank?
+		      @finalize.send_paper_copy =  true
+		    end
+		    @finalize.save
 
  			#if the user has already signed up with his email, let's merge his accounts
  			if user_params[:email].empty?
@@ -66,9 +74,14 @@
 
  	def create
  		@micropost = Micropost.new(micropost_params)
- 		@micropost.has_been_paid = false
- 		@micropost.allow_display = false
- 		@micropost.content_public = false
+ 		@micropost.has_been_paid 		= false
+ 		@micropost.allow_display 		= false
+ 		@micropost.content_public 		= false
+ 		@micropost.email_sent 			= false
+ 		@micropost.paper_version_sent 	= false
+ 		@micropost.flag 				= false
+
+
  		if @micropost.save
  			flash[:success] = "We're already working on your letter! Just add a few details now!"
  			redirect_to ready_to_launch_path
@@ -113,31 +126,44 @@
 
   	def admin_pannel_posts
 		@space_posts= Micropost.where("launch_into_space = ?", true)
+		@space_posts.each do |post|
+			post.to_pay = post.standard_price
+			post.save
+		end
 		@web_posts= Micropost.where("launch_into_space = ?", false)
+		@web_posts.each do |post|
+			post.to_pay = post.standard_price
+			post.save
+		end
 	end
 
-	def list_space_posts
-		@posts= Micropost.where("launch_into_space = ?", true)
+	def admin_sort_posts
+		if admin_params[:admin_action] == "list_space_posts"
+			@posts= Micropost.where("launch_into_space = ?", true)	
+			@title="Posts going to space"	
+		elsif admin_params[:admin_action] == "list_web_posts"
+			@posts= Micropost.where("launch_into_space = ?", false)
+			@title="Web posts only"	
+		elsif admin_params[:admin_action] == "list_action_required_posts"
+			@posts= Micropost.where("allow_display = ? AND has_been_paid = ? OR 
+				send_email_to_partner = ? AND email_sent = ? OR 
+				send_paper_copy = ? AND paper_version_sent = ?", false, true, true, false, true, false)
+			@title="! Action Required !"
+		elsif admin_params[:admin_action] == "list_flagged_posts"
+			@posts= Micropost.where("flag = ?", true)
+			@title="Flagged posts"	
+		else
+			@title="Error"	
+		end
 		respond_to do |format|
       		format.html { redirect_to admin_pannel_posts_path }
       		format.js
-    	end
+      	end
 	end
 
-	def list_web_posts
-		@posts= Micropost.where("launch_into_space = ?", false)
-		respond_to do |format|
-      		format.html { redirect_to admin_pannel_posts_path }
-      		format.js
-    	end	
-    end
 
 	def admin_post_actions
-		@params= admin_params
-		puts "params"
-		puts admin_params
-		@post= Micropost.find_by_id(@params[:id])
-		puts "post id #{@post.id}"
+		@post= Micropost.find_by_id(admin_params[:id])
 		if admin_params[:admin_action] == "toggle_allow_display"
 			if @post.allow_display?
 				@post.allow_display=false
@@ -154,8 +180,31 @@
 				@post.has_been_paid=true
 			end
 			@post.save
+		elsif admin_params[:admin_action] == "toggle_email_sent"
+				
+			if @post.email_sent?
+				@post.email_sent=false
+			else
+				@post.email_sent=true
+			end
+			@post.save
+		elsif admin_params[:admin_action] == "toggle_paper_version_sent"
+				
+			if @post.paper_version_sent?
+				@post.paper_version_sent=false
+			else
+				@post.paper_version_sent=true
+			end
+			@post.save
+		elsif admin_params[:admin_action] == "toggle_flag"
+				
+			if @post.flag?
+				@post.flag=false
+			else
+				@post.flag=true
+			end
+			@post.save
 		end
-
 		@posts= Array.new
 		@posts.push(@post)
 
