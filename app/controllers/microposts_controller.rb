@@ -1,6 +1,7 @@
  class MicropostsController < ApplicationController
  	before_action :signed_in_user, only: [:destroy]
- 	before_action :admin_user,     only: [:destroy]
+ 	before_action :admin_user,     only: [:destroy, :allow_display, 
+ 		:list_web_posts, :list_space_posts, :admin_pannel_posts]
 
 
  	def new
@@ -65,6 +66,9 @@
 
  	def create
  		@micropost = Micropost.new(micropost_params)
+ 		@micropost.has_been_paid = false
+ 		@micropost.allow_display = false
+ 		@micropost.content_public = false
  		if @micropost.save
  			flash[:success] = "We're already working on your letter! Just add a few details now!"
  			redirect_to ready_to_launch_path
@@ -81,7 +85,8 @@
  	end
 
  	def show
- 		@micropost = Microposts.find(params[:secret_key])
+ 		@micropost = Micropost.find(params[:id])
+ 		redirect_to "/secret/#{@micropost.secret_key.to_s}"
  	end
 
  	def destroy
@@ -127,6 +132,39 @@
     	end	
     end
 
+	def admin_post_actions
+		@params= admin_params
+		puts "params"
+		puts admin_params
+		@post= Micropost.find_by_id(@params[:id])
+		puts "post id #{@post.id}"
+		if admin_params[:admin_action] == "toggle_allow_display"
+			if @post.allow_display?
+				@post.allow_display=false
+			else
+				@post.allow_display=true
+			end
+			@post.save
+		
+		elsif admin_params[:admin_action] == "toggle_payment_state"
+				
+			if @post.has_been_paid?
+				@post.has_been_paid=false
+			else
+				@post.has_been_paid=true
+			end
+			@post.save
+		end
+
+		@posts= Array.new
+		@posts.push(@post)
+
+		respond_to do |format|
+      		format.html { redirect_to admin_pannel_posts_path }
+      		format.js
+    	end
+	end
+
     #admin pannel end
 
  	private
@@ -143,6 +181,10 @@
 
  	def user_params
  		params.require(:user).permit(:name, :email, :password, :password_confirmation, :redirect_to)
+ 	end
+
+ 	def admin_params
+ 		params.require(:admin_params).permit(:admin_action, :id, :content, :redirect_to)
  	end
 
  	def admin_user

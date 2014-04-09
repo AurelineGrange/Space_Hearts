@@ -170,32 +170,68 @@ $grayLight: #bbb;
 
 
 .admin-pannel-posts ol{
+  padding-top: 20px;
+  padding-left:0px;
+  padding-right:0px;
   margin: 20px;
   width: 20%;
-  min-height: 180px;
+  height: 200px;
   overflow: auto;
+  text-align: center;
 }
 
-
+.admin-pannel-posts ol li.content-secret-key{
+  font-family: quicksand !important;
+  font-size: 1.3em !important;
+  color: $colorText1 !important;
+  list-style: none;
+  margin-bottom: 6px;
+  margin-left:auto;
+  margin-right:auto;
+  width: 90%  !important;
+  a{
+    color: $color3  !important;
+  }
+  }
   .admin-pannel-posts ol li.content{
   font-family: quicksand !important;
   font-size: 1em !important;
-  color: #666 !important;
+  color: #fff !important;
+  list-style: none;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top: 10px;
   }
   .admin-pannel-posts ol li.content-space{
   font-family: quicksand !important;
   font-size: 1.3em !important;
-  color: #91d271 !important;
+  color: #fff !important;
+  list-style: none;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  margin-left:auto;
+  margin-right:auto;
   }
-  .admin-pannel-posts ol li.content-secret-key{
-  font-family: quicksand !important;
-  font-size: 1.3em !important;
-  color: #7fbadc !important;
-  a{
-    color: #7fbadc !important;
-  }
-  }
+  
 
+.btn-allow-display{
+  font-family: quicksand;
+  width: 90%  !important;
+  margin-left: 5%;
+  margin-right: 5%;
+  color: #fff !important;
+  background-color: transparent;
+  padding: 3px !important;
+  margin-top: 3px;
+  margin-bottom: 8px;
+  text-align: center !important;
+  border-color: #fff !important;
+  border-radius: 2px;
+  border: 1px solid #fff;  
+  &:hover {
+    font-weight: 700;
+  }
+}
 
 
 

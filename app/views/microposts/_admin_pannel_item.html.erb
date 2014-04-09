@@ -1,0 +1,37 @@
+				<% if current_user.admin? %>
+					<% if @post.allow_display? && @post.has_been_paid?%>
+						<ol class="pull-left kim-green">
+						<% elsif @post.allow_display? && !@post.has_been_paid? %>
+						<ol class="pull-left" style="background-color: #666">
+						<% elsif !@post.allow_display? && @post.has_been_paid? %>
+						<ol class="pull-left kim-sunset">
+						<% else %>
+						<ol class="pull-left kim-blue">
+						<% end %>
+						<li class="content-secret-key"><%= link_to @post.secret_key, "/secret/#{@post.secret_key.to_s}"%></li>
+							<% if @post.launch_into_space? %>
+							<li class="content-space">is going to space !</li> 
+							<% end %>
+
+							<li class="content"><%= form_for :admin_params, url: { action: "admin_post_actions"}, method: :get ,remote: true do |f| %>
+								<%= f.hidden_field :id, value: @post.id %>
+								<%= f.hidden_field :admin_action, value: "toggle_allow_display" %>
+								<%= f.submit "Display: #{@post.allow_display.to_s}", class: "btn-allow-display pull-left"%><% end %>
+							</li>
+
+							<li class="content"><%= form_for :admin_params, url: { action: "admin_post_actions"}, method: :get , remote: true do |f| %>
+								<%= f.hidden_field :id, value: @post.id %>
+								<%= f.hidden_field :admin_action, value: "toggle_payment_state" %>
+								<%= f.submit "Paid: #{@post.has_been_paid.to_s}", class: "btn-allow-display pull-left"%><% end %>
+							</li>
+							
+							<li class="content"><%= @post.name1 %></li>
+							<li class="content"><%= @post.name2 %></li>
+							<li class="content">Created <%= time_ago_in_words(@post.created_at) %> ago.</li>
+
+							<li class="content"><%= link_to "delete", @post, method: :delete,
+								data: { confirm: "You sure?" },
+								title: @post.content %>
+							</li>
+					</ol>
+				<% end %>

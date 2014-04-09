@@ -7,8 +7,8 @@
 	| <%= link_to "delete", user, method: :delete,
 	data: { confirm: "You sure?" } %>
 	<% end %>
-	<% user.microposts.each do |post| %>
-	<%= link_to post.secret_key, post.id %>
-	<% end %>
+		<% user.microposts.each do |post| %>
+			<%= link_to post.secret_key, post %>
+		<% end %>
 	<% end %>
 </li>
