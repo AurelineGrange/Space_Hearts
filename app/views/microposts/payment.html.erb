@@ -41,7 +41,7 @@
 
 
   <h1><%= @micropost.standard_price.to_s %> $</h1>
-
+  <h2 style="margin-bottom:-40px;">By clicking the Check Out button, you automatically confirm that<br /> you have read, understood and accept the <%= link_to "terms of use", help_path%>.</h2>
   <%= render "payment/paypal_standard_heart_button"%>
   <span class="content"><h2>Your secret key should be functionnal before 24 hours after your checkout.</h2></span>
 </section>
