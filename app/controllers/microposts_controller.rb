@@ -35,6 +35,7 @@
  			#if the user has already signed up with his email, let's merge his accounts
  			if user_params[:email].empty?
  				#we have an anonymous user
+ 				@finalize.update_attributes(user_id: User.find_by(email: "anonymous@love-space-mission.com")
  			elsif User.find_by(email: user_params[:email])
  				#merge
  				@finalize.update_attributes(user_id: User.find_by(email: user_params[:email]).id)
