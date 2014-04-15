@@ -3,8 +3,8 @@
   <div class="center hero-unit">
     <h1 id="home-title">Love Space Finalize</h1>
 
-    <h2>
-      An eternal proof of your love that will be shown here and sent into space... </br> Choose how you want to delight your partner!
+    <h2 style="font-size: 1.8em; margin-top:0px; margin-bottom: 50px;">
+       We rocket a proof of your love into space to eternalize it ! </br>
     </h2>
 
     <!-- <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %> -->
@@ -30,7 +30,7 @@
       <h1>Your Love</h1>
       <h2>Would you like your love to be notified by email?</h2>
       <%= f.text_field :partner_name, class: 'form-control', placeholder: "Your love's Name" %>
-      <p> Firstname Lastname </p>
+      <p> First name  Last name </p>
       <%= f.text_field :partner_email, class: 'form-control', placeholder: "Your love's e-mail" %>
       <p> Leave the email field blank otherwise </p>
       <h2>We can send a delicate premium crafted thick-paper copy of your gift to your beloved one !</h2>
@@ -56,7 +56,7 @@
    <div class="centered">
     <h1>You</h1>
     <h2>Your coordinates:</h2>
-    <p> You can contact us at any time of the day or night if something was not perfect or if you wanted to modify anything! </br>Love lives around the clock !</p>
+    <p> You can contact us at any time of the day or night if something was not perfect or if you want to modify anything ! </br>Love lives around the clock !</p>
     <%= fields_for @finalize.user do |user_form| %>
 
     <%= user_form.text_field :name, class: 'form-control', value: "", placeholder: "First name" %>
