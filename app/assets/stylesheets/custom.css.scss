@@ -1312,11 +1312,13 @@ input:-webkit-autofill:focus {
   background: transparent image-url('heart_small.png') no-repeat center center;
   background-size: contain;
   background-color:transparent;
-  float:left;
+  float:none;
   list-style:none;
   width: 200px;
   height: 200px;
-  margin: 20px;
+  margin: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   padding:0;
   color: #fff;
   padding-top: 40px;
@@ -1325,3 +1327,47 @@ input:-webkit-autofill:focus {
   font-weight: 300;
   font-size: 1.4em;
 }
+
+.heart.heart-rocket {
+  background: transparent image-url('heart_small_rocket.png') no-repeat center center;
+  background-size: contain;
+  background-color:transparent;
+  float:none;
+  list-style:none;
+  width: 310px;
+  height: 310px;
+  margin: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding:0;
+  color: #fff;
+  padding-top: 70px;
+  text-align: center;
+  font-family: quicksand;
+  font-weight: 400;
+  font-size: 1.8em;
+}
+
+
+
+.heart.heart-vip {
+  background: transparent image-url('heart_small_VIP.png') no-repeat center center;
+  background-size: contain;
+  background-color:transparent;
+  float:none;
+  list-style:none;
+  width: 420px;
+  height: 420px;
+  margin: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding:0;
+  color: #fff;
+  padding-top: 100px;
+  text-align: center;
+  font-family: quicksand;
+  font-weight: 400;
+  font-size: 2.4em;
+}
+
+

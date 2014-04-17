@@ -37,14 +37,8 @@
   <section id="choice-page-space-section">
 
     <div class="centered bigger-hover" style="margin-top: 90px; color: $color3 !important;">
-      <%= form_for(@user) do |f| %>
-      <%= f.hidden_field :name, value: "temporary" %>
-      <%= f.hidden_field :email, value: (1_000 + Random.rand(10_000_000)).to_s << "@example.com" %>
-      <%= f.hidden_field :password, value: "password" %>
-      <%= f.hidden_field :password_confirmation, value: "password" %>
-      <%= f.hidden_field :redirect_to, value: "choice-space" %>
       <div class="centered">
-        <%= f.submit "Rocket your love proof into space", class: "btn btn-large btn-primary", id: "btn-choice-space" %>
+        <%= link_to "Rocket your love proof into space", choice_path, class: "btn btn-large btn-primary", id: "btn-choice-space" %>
       </div>
       <%= image_tag "heart_small.png", style: "width: 150px; height: auto; margin-top: -400px;", class: "" %>
       <% end %>
@@ -65,14 +59,8 @@
   <section id="choice-page-web-section">
 
     <div class="centered bigger-hover" style="margin-top: 70px; color: $color3 !important;">
-      <%= form_for(@user) do |f| %>
-      <%= f.hidden_field :name, value: "temporary" %>
-      <%= f.hidden_field :email, value: (1_000 + Random.rand(10_000_000)).to_s << "@example.com" %>
-      <%= f.hidden_field :password, value: "password" %>
-      <%= f.hidden_field :password_confirmation, value: "password" %>
-      <%= f.hidden_field :redirect_to, value: "choice-web" %>
       <div class="centered">
-        <%= f.submit "Eternalize your love on the Heart Wall", class: "btn btn-large btn-primary", id: "btn-choice-web" %>
+        <%= link_to "Eternalize your love on the Heart Wall", choice_path, class: "btn btn-large btn-primary", id: "btn-choice-web" %>
       </div>
       <%= image_tag "heart_small.png", style: "width: 100px; height: auto; margin-top: -400px;", class: "" %>
       <% end %>
