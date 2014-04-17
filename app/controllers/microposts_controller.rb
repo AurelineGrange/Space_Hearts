@@ -123,6 +123,8 @@
 		@heart_items= Microposts.all
 	end
 
+	#-----------------------------------------
+	#pages for apps and external interractions
 	def heart_wall_xml
 		@heart_items= Micropost.where("launch_into_space = ?", true)
 		@diminished_heart_items= Array.new
@@ -137,46 +139,46 @@
 		@user = User.new
  		     # Not the final implementation!
 
- 		     @user.name= "temporary"
- 		     @user.email= (1_000 + Random.rand(10_000_000)).to_s << "@example.com"
- 		     @user.password="password"
- 		     @user.password_confirmation="password"
- 		     if @user.email=="jc.gasche@mac.com" || @user.email=="aurelinegrange@me.com"
- 		     	@user.update_attributes(admin: true)
- 		     end
+ 		@user.name= "temporary"
+      	@user.email= (1_000 + Random.rand(10_000_000)).to_s << "@example.com"
+ 	    @user.password="password"
+ 	    @user.password_confirmation="password"
+ 	    if @user.email=="jc.gasche@mac.com" || @user.email=="aurelinegrange@me.com"
+ 	     	@user.update_attributes(admin: true)
+ 	    end
 
- 		     if @user.save
- 		     	sign_in @user
- 		     else
- 		     	while !@user.save
- 		     		@user.email= (1_000 + Random.rand(10_000_000)).to_s << "@example.com"
- 		     	end
- 		     	sign_in @user
- 		     end
- 		 end
+ 	    if @user.save
+ 	     	sign_in @user
+ 	    else
+ 	     	while !@user.save
+ 	     		@user.email= (1_000 + Random.rand(10_000_000)).to_s << "@example.com"
+ 	     	end
+ 	     	sign_in @user
+ 	    end
+ 	end
 
- 		 def pay_heart_auto
- 		 	@micropost = Micropost.new
- 		 	@user = User.new
+ 	def pay_heart_auto
+ 		@micropost = Micropost.new
+ 		@user = User.new
 
- 		 	if @finalize.update_attributes(finalize_params)
- 		 		@finalize.to_pay = @finalize.standard_price
- 		 		unless @finalize.partner_email.blank?
- 		 			@finalize.send_paper_copy =  true
- 		 		end
+ 		if @micropost.update_attributes(finalize_params)
+ 			@micropost.to_pay = @micropost.standard_price
+ 			unless @micropost.partner_email.blank?
+ 				@micropost.send_paper_copy =  true
+ 			end
 
- 		 		unless @finalize.mail_street.blank? || @finalize.mail_street2.blank?
- 		 			@finalize.send_paper_copy =  true
- 		 		end
- 		 		@finalize.save
+ 			unless @micropost.mail_street.blank? || @micropost.mail_street2.blank?
+ 				@micropost.send_paper_copy =  true
+ 			end
+ 			@micropost.save
 
  			#if the user has already signed up with his email, let's merge his accounts
  			if user_params[:email].empty?
  				#we have an anonymous user
- 				#@finalize.update_attributes(user_id: User.find_by(email: "anonymous@love-space-mission.com").id)
+ 				#@micropost.update_attributes(user_id: User.find_by(email: "anonymous@love-space-mission.com").id)
  			elsif User.find_by(email: user_params[:email])
  				#merge
- 				@finalize.update_attributes(user_id: User.find_by(email: user_params[:email]).id)
+ 				@micropost.update_attributes(user_id: User.find_by(email: user_params[:email]).id)
  			else
  				#update user info normally.
  				if @user.update_attributes(user_params)
@@ -197,13 +199,16 @@
 
 
  			#Now let's go back to our business
- 			flash[:success] = "All info updated"
- 			redirect_to last_step_path
+ 			render 'payment/paypal_standard_heart_button'
  		else
- 			render 'finalize_order'
+ 			redirect_to create_heart_auto_path
  		end
 
  	end
+
+	# end pages for apps and external interractions
+	#----------------------------------------------
+
 
   	#admin pannel functions
 
@@ -254,9 +259,9 @@
   				@post.allow_display=true
   			end
   			@post.save
-  			
+
   		elsif admin_params[:admin_action] == "toggle_payment_state"
-  			
+
   			if @post.has_been_paid?
   				@post.has_been_paid=false
   			else
@@ -264,7 +269,7 @@
   			end
   			@post.save
   		elsif admin_params[:admin_action] == "toggle_email_sent"
-  			
+
   			if @post.email_sent?
   				@post.email_sent=false
   			else
@@ -272,7 +277,7 @@
   			end
   			@post.save
   		elsif admin_params[:admin_action] == "toggle_paper_version_sent"
-  			
+
   			if @post.paper_version_sent?
   				@post.paper_version_sent=false
   			else
@@ -280,7 +285,7 @@
   			end
   			@post.save
   		elsif admin_params[:admin_action] == "toggle_flag"
-  			
+
   			if @post.flag?
   				@post.flag=false
   			else

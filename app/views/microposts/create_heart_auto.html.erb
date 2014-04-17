@@ -1,9 +1,8 @@
 <% provide(:title, "create_heart_auto") %>
 
-<%= form_for @micropost, url: { action: "create_heart_auto"}, method: :patch do |f| %> 
+<title>create_heart_auto</title>
 
-
-
+<%= form_for @micropost, url: { action: "pay_heart_auto"}, method: :patch do |f| %> 
 
   <%= f.check_box :launch_into_space, value: false %> 
   <%= f.hidden_field :send_email_to_partner, value: false %>        
@@ -12,8 +11,7 @@
   <%= f.text_area :extra, placeholder: "extra" %>
   <%= f.text_area :name1, placeholder: "name1" %>
   <%= f.text_area :name2, placeholder: "name2" %>
-  <%= f.text_field :assigned_secret %>
-  <%= f.text_field :secret_key %>
+  <%= f.text_field :assigned_secret, placeholder: "Assigned key" %>
   <%= f.text_field :secret_key, placeholder: "Your secret key" %>
   <%= f.text_field :partner_name, placeholder: "Your love's Name" %>
   <%= f.text_field :partner_email, placeholder: "Your love's e-mail" %>
@@ -24,7 +22,7 @@
   <%= f.text_field :mail_state, placeholder: "State" %>
   <%= f.text_field :mail_country, placeholder: "Country" %>
 
-  <%= fields_for @micropost.user do |user_form| %>
+  <%= fields_for @user do |user_form| %>
     <%= user_form.text_field :name, value: "", placeholder: "First name" %>
     <%= user_form.text_field :email, value: "", placeholder: "Email" %>
     <%= user_form.password_field :password, placeholder: "Password" %>
