@@ -70,7 +70,7 @@ class UsersController < ApplicationController
   end
 
   def admin_users_actions
-    @user= User.find_by_id(admin_params[:id])
+    @user= User.find_by(id: admin_params[:id])
     if admin_params[:admin_action] == "make_anonymous"
       @posts = Micropost.where("user_id = ?", @user.id)
       @anonyme = User.find_by(email: "anonymous@love-space-mission.com")
@@ -85,6 +85,7 @@ class UsersController < ApplicationController
       @title="Error"  
     end
     @users = User.paginate(page: params[:page])
+
     respond_to do |format|
           format.html { redirect_to admin_pannel_users_path }
           format.js

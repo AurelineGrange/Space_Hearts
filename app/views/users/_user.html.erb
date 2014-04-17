@@ -1,20 +1,25 @@
+<% if current_user.admin?%>
+	<% if user.admin?%>
+		<li id="<%= user.id.to_s %>" style="list-style:none;width:auto;margin:0;padding:0; color: #fff;" class="kim-amber">
+	<% else %>
+		<li id="<%= user.id.to_s %>" style="list-style:none;width:auto;margin:0;padding:0; color: #fff;">
+	<%end%>
 
-<li id="<%= user.id.to_s %>" style="list-style:none;width:auto;margin:0;padding:0; color: #fff;">
-	<% if current_user.admin?%>
-	<span class="content"> <h2><%= user.name %> </h2></span>
-	<span class="content"><%= user.email %></span>
-		<% user.microposts.each do |post| %>
-			|| <%= link_to post.secret_key, post , class: "kim-blue-color" %>  
-		<% end %>
-		<%= form_for :admin_params, url: { action: "admin_users_actions"}, method: :get , 
-	             remote: true do |f| %>
-	    <%= f.hidden_field :admin_action, value: "make_anonymous" %>
-	    <%= f.hidden_field :id, value: user.id %>
-	  	<%= f.submit "make_anonymous", class: "kim-fuchsia-color", style: "border: none; margin: 0px; background: transparent"%>
-	  	<% end %>
-	  	<% if current_user.admin? && !current_user?(user) %>
-	| !! <%= link_to "delete", user, method: :delete,
-	data: { confirm: "You sure?" } %>
-	<% end %>
-	<% end %>
-</li>
+		<span class="content"> <h2><%= user.name %> </h2></span>
+		<span class="content"><%= user.email %></span>
+			<% user.microposts.each do |post| %>
+				|| <%= link_to post.secret_key, post , class: "kim-blue-color" %>  
+			<% end %>
+			<%= form_for :admin_params, url: { action: "admin_users_actions"}, method: :get , 
+		             remote: true do |f| %>
+			    <%= f.hidden_field :admin_action, value: "make_anonymous" %>
+			    <%= f.hidden_field :id, value: user.id %>
+			  	<%= f.submit "make_anonymous", class: "kim-fuchsia-color", style: "border: none; margin: 0px; background: transparent"%>
+		  	<% end %>
+		  	<% if current_user.admin? && !current_user?(user) %>
+				| !! <%= link_to "delete", user, method: :delete,
+				data: { confirm: "You sure?" } %>
+			<% end %>
+	</li>
+
+<% end %>
