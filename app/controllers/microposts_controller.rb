@@ -44,15 +44,25 @@
  				if @user.update_attributes(user_params)
 					flash[:success] = "Account created"
 				else
-					render 'edit'
+					store_location
+					@user.email= user_params[:email]
+					unless user_params[:name].empty? 
+						@user.name = user_params[:name] 
+					else
+						@user.name = "Anonymous"
+					end
+					@user.password= "123456"
+    				@user.password_confirmation = "123456"
+					@user.save!
 				end
  			end
+
 
  			#Now let's go back to our business
 			flash[:success] = "All info updated"
       		redirect_to last_step_path
 		else
-			render 'ready_to_launch'
+			render 'finalize_order'
 		end
  	end
 

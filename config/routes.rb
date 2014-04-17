@@ -5,28 +5,28 @@ SpaceHearts::Application.routes.draw do
   resources :microposts
   root 'static_pages#home'
 
-  match '/signout',         to: 'sessions#destroy',           via: 'delete'
-  match '/about',           to: 'static_pages#about',         via: 'get'
-  match '/help',            to: 'static_pages#help',          via: 'get'
-  match '/contact',         to: 'static_pages#contact',       via: 'get'
-  match '/pricing',         to: 'static_pages#pricing',       via: 'get'
-  match '/signup',          to: 'users#new',                  via: 'get'
-  match '/signin',          to: 'sessions#new',               via: 'get'
+  match '/signout',           to: 'sessions#destroy',               via: 'delete'
+  match '/about',             to: 'static_pages#about',             via: 'get'
+  match '/help',              to: 'static_pages#help',              via: 'get'
+  match '/contact',           to: 'static_pages#contact',           via: 'get'
+  match '/pricing',           to: 'static_pages#pricing',           via: 'get'
+  match '/signup',            to: 'users#new',                      via: 'get'
+  match '/signin',            to: 'sessions#new',                   via: 'get'
 
-  match '/secret',          to: 'static_pages#search_with_secret_key',    via: 'post'
-  match '/secret/:secret_key',   to: 'microposts#display',    via: 'get'
+  match '/secret',            to: 'static_pages#search_with_secret_key',    via: 'post'
+  match '/secret/:secret_key',to: 'microposts#display',             via: 'get'
 
-  match '/choice',          to: 'static_pages#choice',        via: 'get'
-  match '/vip',             to: 'static_pages#vip',           via: 'get'
+  match '/choice',            to: 'static_pages#choice',            via: 'get'
+  match '/vip',               to: 'static_pages#vip',               via: 'get'
 
-  match '/love_letter',     to: 'microposts#new',             via: 'get'
-  match '/configure',       to: 'microposts#chose_web_only',  via: 'get'
-  match '/ready_to_launch', to: 'microposts#finalize_order',  via: 'get'
-  match '/check_finalize',  to: 'microposts#check_finalize',  via: 'patch'
-  match '/last_step',       to: 'microposts#payment',         via: 'get'
+  match '/love_letter',       to: 'microposts#new',                 via: 'get'
+  match '/configure',         to: 'microposts#chose_web_only',      via: 'get'
+  match '/ready_to_launch',   to: 'microposts#finalize_order',      via: 'get'
+  match '/check_finalize',    to: 'microposts#check_finalize',      via: 'patch'
+  match '/last_step',         to: 'microposts#payment',             via: 'get'
 
 
-  match '/heart_wall_xml',  to: 'microposts#heart_wall_xml',  via: 'get'
+  match '/heart_wall_xml',    to: 'microposts#heart_wall_xml',      via: 'get'
 
   match '/maintenance',       to: 'errors#maintenance',             via: 'get'
   match '/admin_pannel_users',to: 'users#admin_pannel_users',       via: 'get'

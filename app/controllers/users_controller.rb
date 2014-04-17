@@ -59,7 +59,7 @@ class UsersController < ApplicationController
         @user.update_attributes(admin: true)
       end
       flash[:success] = "Profile updated"
-      redirect_to @user
+      redirect_back_or user
     else
       render 'edit'
     end
