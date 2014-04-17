@@ -27,10 +27,13 @@ SpaceHearts::Application.routes.draw do
 
 
   match '/heart_wall_xml',    to: 'microposts#heart_wall_xml',      via: 'get'
+  match '/create_heart_auto', to: 'microposts#create_heart_auto',   via: 'get'
+  match '/pay_heart_auto',    to: 'microposts#pay_heart_auto',      via: 'get'
+
 
   match '/maintenance',       to: 'errors#maintenance',             via: 'get'
   match '/admin_pannel_users',to: 'users#admin_pannel_users',       via: 'get'
-  match '/admin_users_actions',to: 'users#admin_users_actions',      via: 'get'
+  match '/admin_users_actions',to: 'users#admin_users_actions',     via: 'get'
   match '/admin_pannel_posts',to: 'microposts#admin_pannel_posts',  via: 'get'
   match '/admin_post_actions',to: 'microposts#admin_post_actions',  via: 'get'
   match '/admin_sort_posts',  to: 'microposts#admin_sort_posts',    via: 'get'

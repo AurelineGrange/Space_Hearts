@@ -1,53 +1,50 @@
 
-<section id="home">
+<section id="home" style="padding-bottom:40px;">
 
   <div class="center hero-unit">
     <div class="container">
       <div class="row">
         <h1 id="home-title">Love Space Mission</h1>
         <h2 style="font-size: 1.8em; margin-top:0px; margin-bottom: 50px;">
-            We rocket a proof of your love into space to eternalize it !
-          </h2>
-        <div class="col-xs-0 col-sm-4 col-md-4" id="home-page-top-left">
-        </div>
-        <div class="col-xs-0 col-sm-4 col-md-4" id="home-page-top-middle">
-          <%= form_for @home_search, url: { action: "search_with_secret_key"} do |f| %>
-          <%= f.text_field :secret_key, class: 'form-control', placeholder: "Secret key" %>
-          <% end %>
-        </div>
-        <div class="col-xs-0 col-sm-4 col-md-4" id="home-page-top-right">
-        </div>
+          We rocket a proof of your love into space to eternalize it !
+        </h2>
 
-      </div>
-      <div class="row">
         <div class="col-xs-0 col-sm-4 col-md-4">
+          <div id="home-page-top-left">
+          </div>
           <h2 class="caption" style="line-height: 1.4;">
-            You write your love message. </br>We send it into space for ever. 
-          </h2>
-        </div>
-        <div class="col-xs-0 col-sm-4 col-md-4">
-        </div>
-        <div class="col-xs-0 col-sm-4 col-md-4">
-          <h2 class="caption" style="line-height: 1.4;">
-            You can be part of this unique space mission!</br> Only a few people will be able to book a spot in our satellite.
-          </h2>
-        </div>
+           You write your love message. </br>We send it into space for ever.
+         </h2>
+       </div>
 
+       <div class="col-xs-0 col-sm-4 col-md-4" id="home-page-top-middle">
+        <%= form_for @home_search, url: { action: "search_with_secret_key"} do |f| %>
+        <%= f.text_field :secret_key, class: 'form-control', placeholder: "Secret key", style: "width: 80% !important;" %>
+        <% end %>
       </div>
+      <div class="col-xs-0 col-sm-4 col-md-4">
+        <div id="home-page-top-right">
+        </div>
+        <h2 class="caption" style="line-height: 1.4;">
+          You can be part of this unique space mission!</br> Only a few people will be able to book a space aboard the satellite.
+        </h2>
+      </div>
+
     </div>
+  </div>
 
-    <div class="row">
+  <div class="row">
     <%= link_to "Know the secret", about_path, class: "btn btn-primary bigger-hover", id: "btn-home-info" %>
     <%= link_to "Get in the spaceship", choice_path, class: "btn btn-primary bigger-hover", id: "btn-home-choice" %>
-    </div>
-  </div> 
+  </div>
+</div> 
 </section>
 
 
 <section id="heart-display">
   <div id="container" class="js-masonry"
   data-masonry-options='{ "columnWidth": 110, "itemSelector": ".heart", "isFitWidth": true }'>
-    <%= render 'shared/heart_display' %>
-  </div>
+  <%= render 'shared/heart_display' %>
+</div>
 </section>
 
