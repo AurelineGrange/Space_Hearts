@@ -69,10 +69,36 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page])
   end
 
+  def admin_users_actions
+    @user= User.find_by_id(admin_params[:id])
+    if admin_params[:admin_action] == "make_anonymous"
+      @posts = Micropost.where("user_id = ?", @user.id)
+      @anonyme = User.find_by(email: "anonymous@love-space-mission.com")
+      @posts.each do |post|
+        post.user_id = @anonyme.id
+        post.save
+        end
+
+      @title="Changed to anonymous" 
+      @user.destroy
+    else
+      @title="Error"  
+    end
+    @users = User.paginate(page: params[:page])
+    respond_to do |format|
+          format.html { redirect_to admin_pannel_users_path }
+          format.js
+        end
+  end
+
   private
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :redirect_to)
+  end
+
+  def admin_params
+    params.require(:admin_params).permit(:admin_action, :id, :content, :redirect_to)
   end
 
   # Before filters

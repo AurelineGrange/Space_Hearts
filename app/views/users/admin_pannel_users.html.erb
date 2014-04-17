@@ -1,11 +1,15 @@
 <% if current_user.admin? %>
 <% provide(:title, 'Admin All users') %>
-<h1>All users</h1>
+<h1 id="admin-page-title">All users</h1>
+<section>
 
-<%= will_paginate %>
-<ul class="users">
-  <%= render @users %>
-</ul>
-<%= will_paginate %>
-
+	<div class="container admin-pannel-posts" id="admin-pannel-content" style="margin-top: -100px;">
+	<%= will_paginate %>
+		<ul class="users">
+			<%= render @users %>
+		</ul>
+		<%= will_paginate %>
+	</div>
+		
+</section>
 <% end %>
