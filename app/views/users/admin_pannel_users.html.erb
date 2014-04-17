@@ -3,11 +3,13 @@
 <h1 id="admin-page-title">All users</h1>
 <section>
 
-	<div class="container admin-pannel-posts" id="admin-pannel-content" style="margin-top: -100px;">
-	<%= will_paginate %>
-		<ul class="users">
-			<%= render @users %>
-		</ul>
+	<div class="container admin-pannel-posts" style="margin-top: -50px;">
+		<%= will_paginate %>
+		<div id="admin-pannel-content">
+			<ul class="users">
+				<%= render @users %>
+			</ul>
+		</div>
 		<%= will_paginate %>
 	</div>
 		

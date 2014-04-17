@@ -1,2 +1,2 @@
-$("#admin-pannel-content").html("<%= render @users %>")
+$("#admin-pannel-content").html("<%= escape_javascript(render @users)%>")
 $("#admin-page-title").html("<%= @title%>")
