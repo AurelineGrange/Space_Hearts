@@ -1,78 +1,77 @@
 <% provide(:title, "About") %>
-<section id="choice-page-main-title">
+<section id="about-page-main-title">
   <div class="center hero-unit">
     <h1 id="home-title">Love Space Mission</h1>
 
-    <h2 style="font-size: 1.5em;">
-       We rocket a proof of your love into space to eternalize it ! </br></br> Choose how you want to delight your partner!
-    </h2>
+    <h2 style="font-size: 1.8em;">
+     We rocket a proof of your love into space to eternalize it ! </br></br> 
+   </h2>
 
-    <!-- <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %> -->
-
-  </section>
-  <section id="choice-page-vip-section">
+   <!-- <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %> -->
+ </section>
 
 
-
-    <!-- VIP customers start by admiring their possibilities on the page, then can login, and after that chose. -->
-    <div class="centered bigger-hover" style="margin-top: 100px; color: $color3 !important;">
-      <div class="centered">
-        <%= link_to "VIP fully personalized treat", vip_path, class: "btn btn-large btn-primary", id: "btn-choice-vip" %>
-      </div>
-      <%= image_tag "heart_small.png", style: "width: 250px; height: auto; margin-top: -520px;", class: "" %>
-    </div>
-    <div class="col-xs-0 col-md-2">
-    </div>
-    <div class="col-xs-12 col-md-4">
-      <p class="choice-description">Be one of the exclusive 6 lucky people to engrave your love message on one of our satellite's side ! <br /> <br />You will be reserved the most exclusive place on the Heart Wall.</p>
-      <h1>From $3'000</h1>
-    </div>
-    <div class="col-xs-12 col-md-5" style= "max-height: 300px;">
-    <%= image_tag "diamond.png", style: "width: 80%; min-width: 300px; margin-top: 100px; margin-left: 20px; margin-right:auto;"%>
-    </div>
-
-
-
-  </section>
-  <section id="choice-page-space-section">
-
-    <div class="centered bigger-hover" style="margin-top: 90px; color: $color3 !important;">
-      <div class="centered">
-        <%= link_to "Rocket your love proof into space", choice_path, class: "btn btn-large btn-primary", id: "btn-choice-space" %>
-      </div>
-      <%= image_tag "heart_small.png", style: "width: 150px; height: auto; margin-top: -400px;", class: "" %>
-      <% end %>
-    </div>
-    <div class="col-xs-0 col-md-2">
-    </div>
-    <div class="col-xs-12 col-md-4" style= "max-height: 480px;">
-      <%= image_tag("rocket.png", style: "width: 10%; margin-left: auto; margin-right: 100px; min-width: 200px; margin-top:60px;")%>
-      <%= image_tag("orbiting-hearts.png", style: "width: 10%; margin-left: 150px; margin-right: 10px; min-width: 200px; margin-top: -70px; margin-bottom: 40px;")%>
-    </div>
-    <div class="col-xs-12 col-md-4">
-      <p class="choice-description">Join the spaceship and own one of the 500 Hearts that will be rocketed into space for eternity ! <br /><br />You will be reserved a special place on the Heart Wall !</p>
-      <h1>From $450</h1>
-    </div>
+ <section id="about-page-mission">
+ <div class="centered" style="font-size: 2.6em;"> The mission 
+ </div>
+ <div class="col-xs-0 col-md-1">
+ </div>
+ <div class="col-xs-12 col-md-6" style= "max-height: 480px;">
+  <p class="mission-description"> 
+    <ul>
+      <li>Unique mission / experience </li>
+      <li>Only 506 people can send their love proof into space (mettre lien book you ticket) </li>
+      <li>As soon as we have the 506 reservations, we will launch the mission (most likely winter 2015) </li>
+      <li> Choice between 3 different packages - You write your love message (you can even customize it at home - add a few handnotes) and we'll rocket it into space for eternity</li>
+      <li>Your message will also be saved on the Heart Wall and accessible to your other half via a secret-key.</li>
+      <li>We will also send you a crafted version of your love message and a certificate of satellite's launch to preciously keep as a souvenir.</li>
+    </ul> 
+</p>
+  </div>
+  <div class="col-xs-12 col-md-4">
+    <%= image_tag("rocket_heart.png", style: "width: 70%; margin-left: auto; margin-right: 100px; min-width: 200px; margin-top:60px;")%>
+  </div>
+</section>
 
 
-  </section>
-  <section id="choice-page-web-section">
 
-    <div class="centered bigger-hover" style="margin-top: 70px; color: $color3 !important;">
-      <div class="centered">
-        <%= link_to "Eternalize your love on the Heart Wall", choice_path, class: "btn btn-large btn-primary", id: "btn-choice-web" %>
-      </div>
-      <%= image_tag "heart_small.png", style: "width: 100px; height: auto; margin-top: -400px;", class: "" %>
-      <% end %>
-    </div>
-    <div class="col-xs-0 col-md-2">
-    </div>
-    <div class="col-xs-12 col-md-4">
-      <p class="choice-description">Own a space on the Heart Wall and show your love.</p>
-      <h1>Just $20</h1>
-    </div>
-    <div class="col-xs-12 col-md-5" style= "max-height: 300px;">
-    <%= image_tag("heart-wall.png", style: "width: 70%; min-width: 300px; margin-top: 0px; margin-bottom: 30px; margin-left: 40px; margin-right:auto;")%>
-    </div>
+<section id="about-page-technical-description">
+ <div class="centered" style="font-size: 2.6em;"> The rocket and the satellite
+ </div>
+ <div class="col-xs-0 col-md-1">
+ </div>
 
-  </section>
+ <div class="col-xs-12 col-md-4">
+    <%= image_tag("rocket_india_circle.png", style: "width: 10%; margin-left: auto; margin-right: 100px; min-width: 150px; margin-top:60px;")%>
+
+      <%= image_tag("Satellite_png.png", style: "width: 50%; margin-left: 110px; margin-right: 10px; min-width: 150px; margin-top: -110px; margin-bottom: 40px;")%>
+  </div>
+
+ <div class="col-xs-12 col-md-6" style= "max-height: 480px;">
+  <p class="mission-description"> 
+    <ul>
+      <li>Type of rocket</li>
+      <li>Satellite ejected from the rocket once an altitude of XXX km is reached</li>
+      <li>Satellite containing the love messages will be traveling for ever on an orbit of 90min, until someone discovers them... Who knows in what century !</li>
+    </ul> 
+</p>
+  </div>
+</section>
+
+
+
+<section id="about-page-packages">
+ <div class="centered" style="font-size: 2.6em;"> Packages
+ </div>
+  <p class="mission-description"> 
+    <ul>
+      <li>Put 3 types of packages in 3 boxes with 2 bullet points per packages - check : https://launchkey.com</li>
+    </ul> 
+</p>
+  </div>
+</section>
+
+
+<section id="about-page-logos">
+  <p class="mission-description"> logos ?</p>
+</section>
