@@ -4,9 +4,7 @@
 
 <%= form_for @micropost, url: { action: "pay_heart_auto"}, method: :patch do |f| %> 
 
-  <%= f.check_box :launch_into_space, value: false %> 
-  <%= f.hidden_field :send_email_to_partner, value: false %>        
-  <%= f.hidden_field :send_paper_copy, value: false %>        
+  <%= f.check_box :launch_into_space, value: 0 %>      
   <%= f.text_area :content, placeholder: "love message" %>
   <%= f.text_area :extra, placeholder: "extra" %>
   <%= f.text_area :name1, placeholder: "name1" %>

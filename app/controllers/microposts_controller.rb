@@ -24,7 +24,7 @@
  			if @finalize.update_attributes(finalize_params)
  				@finalize.to_pay = @finalize.standard_price
  				unless @finalize.partner_email.blank?
- 					@finalize.send_paper_copy =  true
+ 					@finalize.send_email_to_partner =  true
  				end
 
  				unless @finalize.mail_street.blank? || @finalize.mail_street2.blank?
@@ -137,34 +137,34 @@
 	def create_heart_auto
 		@micropost = Micropost.new
 		@user = User.new
- 		     # Not the final implementation!
-
- 		@user.name= "temporary"
-      	@user.email= (1_000 + Random.rand(10_000_000)).to_s << "@example.com"
- 	    @user.password="password"
- 	    @user.password_confirmation="password"
- 	    if @user.email=="jc.gasche@mac.com" || @user.email=="aurelinegrange@me.com"
- 	     	@user.update_attributes(admin: true)
- 	    end
-
- 	    if @user.save
- 	     	sign_in @user
- 	    else
- 	     	while !@user.save
- 	     		@user.email= (1_000 + Random.rand(10_000_000)).to_s << "@example.com"
- 	     	end
- 	     	sign_in @user
- 	    end
  	end
 
  	def pay_heart_auto
  		@micropost = Micropost.new
  		@user = User.new
 
- 		if @micropost.update_attributes(finalize_params)
+    unless @user.update_attributes(user_params)
+      @user.name= "temporary"
+        @user.email= (1_000 + Random.rand(10_000_000)).to_s << "@example.com"
+      @user.password="password"
+      @user.password_confirmation="password"
+      if @user.save
+        sign_in @user
+      else
+        while !@user.save
+          @user.email= (1_000 + Random.rand(10_000_000)).to_s << "@example.com"
+        end
+        sign_in @user
+      end
+    end
+
+    @micropost.update_attributes(user_id: @user.id)
+
+ 		if @micropost.update_attributes(create_heart_auto_params)
+      puts "updated"
  			@micropost.to_pay = @micropost.standard_price
  			unless @micropost.partner_email.blank?
- 				@micropost.send_paper_copy =  true
+ 				@micropost.send_email_to_partner =  true
  			end
 
  			unless @micropost.mail_street.blank? || @micropost.mail_street2.blank?
@@ -199,8 +199,9 @@
 
 
  			#Now let's go back to our business
- 			render 'payment/paypal_standard_heart_button'
+ 			render partial: 'payment/paypal_standard_heart_button'
  		else
+      puts "did not update"
  			redirect_to create_heart_auto_path
  		end
 
@@ -309,6 +310,12 @@
     def micropost_params
     	params.require(:micropost).permit(:content, :name1, :name2, :extra, :send_email_to_partner, 
     		:send_paper_copy, :launch_into_space, :user_id, :secret_key, :assigned_secret)
+    end
+
+    def create_heart_auto_params
+      params.require(:micropost).permit(:launch_into_space, :secret_key, :partner_name, :partner_email, 
+        :mail_street, :mail_street2, :mail_cp, :mail_city, :mail_state, :mail_country, :content, :name1,
+        :name2, :extra, :assigned_secret)
     end
 
     def finalize_params
