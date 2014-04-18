@@ -1373,3 +1373,37 @@ input:-webkit-autofill:focus {
 }
 
 
+
+/* ____________________________________ */
+/* TERMS OF USE */
+
+.title-terms {
+  line-height: 1;
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  margin-bottom: 30px;
+  text-align: left;
+  color: $colorText1;
+  font-size: 1.3em;
+}
+
+.terms-use {
+  line-height: 1.4;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  text-align: justify;
+  font-weight: normal;
+  color: $colorText1;
+}
+
+
+.terms-listing{
+  line-height: 1.4;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.9em;
+  margin-bottom: 30px;
+  text-align: justify;
+  font-weight: normal;
+  color: $colorText1;
+}
