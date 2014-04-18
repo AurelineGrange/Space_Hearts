@@ -77,51 +77,51 @@
 	    @heart_item= Micropost.find_by_secret_key(params[:secret_key].downcase)
 	    if @heart_item
 	      #render 'display'
-	  else
-	  	flash[:failure] = "The secret key you entered is not valid"
-	  	redirect_to root_url
-	  end
-	end
+     else
+      flash[:failure] = "The secret key you entered is not valid"
+      redirect_to root_url
+    end
+  end
 
-	def create
-		@micropost = Micropost.new(micropost_params)
-		@micropost.has_been_paid 		= false
-		@micropost.allow_display 		= false
-		@micropost.content_public 		= false
-		@micropost.email_sent 			= false
-		@micropost.paper_version_sent 	= false
-		@micropost.flag 				= false
+  def create
+    @micropost = Micropost.new(micropost_params)
+    @micropost.has_been_paid 		= false
+    @micropost.allow_display 		= false
+    @micropost.content_public 		= false
+    @micropost.email_sent 			= false
+    @micropost.paper_version_sent 	= false
+    @micropost.flag 				= false
 
 
-		if @micropost.save
-			flash[:success] = "We're already working on your letter! Just add a few details now!"
-			redirect_to ready_to_launch_path
-		else
-			@home_search= String.new
-			if micropost_params[:launch_into_space]
-				render 'new'
-			elsif !micropost_params[:launch_into_space]
-				render 'chose_web_only'
-			else
-				redirect_to root_url
-			end
-		end
-	end
+    if @micropost.save
+     flash[:success] = "We're already working on your letter! Just add a few details now!"
+     redirect_to ready_to_launch_path
+   else
+     @home_search= String.new
+     if micropost_params[:launch_into_space]
+      render 'new'
+    elsif !micropost_params[:launch_into_space]
+      render 'chose_web_only'
+    else
+      redirect_to root_url
+    end
+  end
+end
 
-	def show
-		@micropost = Micropost.find(params[:id])
-		redirect_to "/secret/#{@micropost.secret_key.to_s}"
-	end
+def show
+  @micropost = Micropost.find(params[:id])
+  redirect_to "/secret/#{@micropost.secret_key.to_s}"
+end
 
-	def destroy
-		Micropost.find(params[:id]).destroy
-		flash[:success] = "Post deleted."
-		redirect_to admin_pannel_posts_path
-	end
+def destroy
+  Micropost.find(params[:id]).destroy
+  flash[:success] = "Post deleted."
+  redirect_to admin_pannel_posts_path
+end
 
-	def index
-		@heart_items= Microposts.all
-	end
+def index
+  @heart_items= Microposts.all
+end
 
 	#-----------------------------------------
 	#pages for apps and external interractions
@@ -137,40 +137,40 @@
 	def create_heart_auto
 		@micropost = Micropost.new
 		@user = User.new
- 	end
+  end
 
- 	def pay_heart_auto
- 		@micropost = Micropost.new
- 		@user = User.new
+  def pay_heart_auto
+   @micropost = Micropost.new
+   @user = User.new
 
-    unless @user.update_attributes(user_params)
-      @user.name= "temporary"
+   unless @user.update_attributes(user_params)
+    @user.name= "temporary"
+    @user.email= (1_000 + Random.rand(10_000_000)).to_s << "@example.com"
+    @user.password="password"
+    @user.password_confirmation="password"
+    if @user.save
+      sign_in @user
+    else
+      while !@user.save
         @user.email= (1_000 + Random.rand(10_000_000)).to_s << "@example.com"
-      @user.password="password"
-      @user.password_confirmation="password"
-      if @user.save
-        sign_in @user
-      else
-        while !@user.save
-          @user.email= (1_000 + Random.rand(10_000_000)).to_s << "@example.com"
-        end
-        sign_in @user
       end
+      sign_in @user
     end
+  end
 
-    @micropost.update_attributes(user_id: @user.id)
+  @micropost.update_attributes(user_id: @user.id)
 
- 		if @micropost.update_attributes(create_heart_auto_params)
-      puts "updated"
- 			@micropost.to_pay = @micropost.standard_price
- 			unless @micropost.partner_email.blank?
- 				@micropost.send_email_to_partner =  true
- 			end
+  if @micropost.update_attributes(create_heart_auto_params)
+    puts "updated"
+    @micropost.to_pay = @micropost.standard_price
+    unless @micropost.partner_email.blank?
+     @micropost.send_email_to_partner =  true
+   end
 
- 			unless @micropost.mail_street.blank? || @micropost.mail_street2.blank?
- 				@micropost.send_paper_copy =  true
- 			end
- 			@micropost.save
+   unless @micropost.mail_street.blank? || @micropost.mail_street2.blank?
+     @micropost.send_paper_copy =  true
+   end
+   @micropost.save
 
  			#if the user has already signed up with his email, let's merge his accounts
  			if user_params[:email].empty?
@@ -202,10 +202,26 @@
  			render partial: 'payment/paypal_standard_heart_button'
  		else
       puts "did not update"
- 			redirect_to create_heart_auto_path
- 		end
+      redirect_to create_heart_auto_path
+    end
 
- 	end
+  end
+
+  def secret_key_actions
+    if secret_key_actions_params[:action]=="check_secret_key"
+      @id="secret-key-check-result"
+      if Micropost.find_by_secret_key(secret_key_actions_params[:secret_key].downcase)
+        @content = "not-free"
+      else
+        @content ="free"
+      end 
+    elsif false
+    end
+    respond_to do |format|
+        format.html { redirect_to create_heart_auto_path }
+        format.js
+      end
+  end
 
 	# end pages for apps and external interractions
 	#----------------------------------------------
@@ -312,6 +328,10 @@
     		:send_paper_copy, :launch_into_space, :user_id, :secret_key, :assigned_secret)
     end
 
+    def secret_key_actions_params
+      params.require(:secret_key_check).permit(:secret_key, :action)
+    end
+
     def create_heart_auto_params
       params.require(:micropost).permit(:launch_into_space, :secret_key, :partner_name, :partner_email, 
         :mail_street, :mail_street2, :mail_cp, :mail_city, :mail_state, :mail_country, :content, :name1,
@@ -335,7 +355,7 @@
     	redirect_to(root_url) unless current_user.admin?
     end
 
-end
+  end
 
 
 
