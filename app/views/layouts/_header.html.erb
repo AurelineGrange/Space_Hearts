@@ -15,7 +15,7 @@
 </div>
 
   <div class="header-container" style="margin-top: 6px; margin-right: 18px">
-    <%= link_to "The Love Space Mission", root_path, id: "logo" %>
+    <a href="/" id="logo" data-no-turbolink>The Love Space Mission</a>
     <% if signed_in? %>
 
     <% if current_user.admin %>
@@ -51,8 +51,8 @@
             <li><%= link_to "Sign in", signin_path %></li>
             <li><%= link_to "Sign up", signup_path %></li>
             <li><%= link_to "About us", about_path %></li>
-            <li><%= link_to "Pricing", pricing_path %></li>
             <li><%= link_to "Help", help_path %></li>
+            <li><%= link_to "Terms of use", terms_path %></li>
             <li><%= link_to "Contact", contact_path %></li>
           </ul>
         </div>
