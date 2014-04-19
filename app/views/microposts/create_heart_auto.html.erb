@@ -4,14 +4,11 @@
 
 <p id="secret-key-generator"><%= random_key.to_s%></p>
 
-<%= form_for :secret_key_check, url: { action: "secret_key_actions"}, method: :get , 
-               remote: true do |f| %>
+<%= form_for :secret_key_check, url: { action: "check_secret_key"}, method: :get do |f| %>
       <%= f.hidden_field :action, value: "check_secret_key" %>
       <%= f.text_area :secret_key, placeholder: "key" %>
       <%= f.submit "check", id:"btn-auto-check-secret-key"%>
       <% end %>
-<p id="secret-key-check-result">empty</p>
-
 
 <%= form_for @micropost, url: { action: "pay_heart_auto"}, method: :patch do |f| %> 
 

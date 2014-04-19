@@ -207,20 +207,12 @@ end
 
   end
 
-  def secret_key_actions
-    if secret_key_actions_params[:action]=="check_secret_key"
-      @id="secret-key-check-result"
+  def check_secret_key
       if Micropost.find_by_secret_key(secret_key_actions_params[:secret_key].downcase)
         @content = "not-free"
       else
         @content ="free"
       end 
-    elsif false
-    end
-    respond_to do |format|
-        format.html { redirect_to create_heart_auto_path }
-        format.js
-      end
   end
 
 	# end pages for apps and external interractions
