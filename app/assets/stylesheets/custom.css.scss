@@ -405,7 +405,7 @@ p {
   font-weight: 400;
   color: $colorText1;
   color: #fff; 
-  margin-top:70px; 
+  margin-top:100px; 
   margin-bottom: 50px;
 }
 
@@ -676,6 +676,7 @@ body {
 }
 
 footer {
+  font-family: 'Quicksand', sans-serif;
   margin-top: 0px ;
   margin-bottom:0px ;
   color: $color2;
@@ -1373,37 +1374,38 @@ input:-webkit-autofill:focus {
 }
 
 
-
 /* ____________________________________ */
 /* TERMS OF USE */
 
 .title-terms {
   line-height: 1;
   font-family: 'Quicksand', sans-serif;
-  font-weight: 700;
+  font-size: 1.3em;
+  letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: left;
+  font-weight: 700;
   color: $colorText1;
-  font-size: 1.3em;
 }
-
+  
 .terms-use {
-  line-height: 1.4;
+  line-height: 1.2;
   font-family: 'Quicksand', sans-serif;
-  font-size: 1.2em;
+  font-size: 1.1em;
   margin-bottom: 30px;
   text-align: justify;
-  font-weight: normal;
+  font-weight: 400;
+  color: $colorText1;
+}
+
+.terms-listing {
+  line-height: 1.2;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.1em;
+  margin-bottom: 30px;
+  text-align: justify;
+  font-weight: 400;
   color: $colorText1;
 }
 
 
-.terms-listing{
-  line-height: 1.4;
-  font-family: 'Quicksand', sans-serif;
-  font-size: 0.9em;
-  margin-bottom: 30px;
-  text-align: justify;
-  font-weight: normal;
-  color: $colorText1;
-}

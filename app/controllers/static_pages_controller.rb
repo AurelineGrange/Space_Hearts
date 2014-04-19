@@ -8,6 +8,9 @@ class StaticPagesController < ApplicationController
   def pricing
   end
 
+  def privacy
+  end
+
   def choice
     @user = User.new
   end
