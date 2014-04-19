@@ -4,87 +4,95 @@
     <h1 id="home-title">Love Space Finalize</h1>
 
     <h2 style="font-size: 1.8em; margin-top:0px; margin-bottom: 50px;">
-       We rocket a proof of your love into space to eternalize it ! </br>
-    </h2>
+     We rocket a proof of your love into space to eternalize it ! </br>
+   </h2>
 
-    <!-- <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %> -->
+   <!-- <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %> -->
 
-  </section>
-
-
-  <section id="finalize-page-secret">
-    <%= form_for @finalize, url: { action: "check_finalize"}, method: :patch do |f| %> 
-    <%= f.hidden_field :launch_into_space %>        
-    <%= render 'shared/error_messages', object: @finalize %>
-    <div class="centered">
-      <h1>Your Secret Key</h1>
-      <h2>Here is the secret key that will reveal your heart:</h2>
-      <%= f.text_field :secret_key, class: 'form-control', value: @finalize.assigned_secret, placeholder: "Your secret key" %>
-      <% unless @finalize.launch_into_space %>
-        <p> Change for a personalized secret key (+30$) </p>
-        <p> (please use alphanumeric characters and dashes only) </p>
-      <% else %>
-        <p> Change for a personalized secret key with any code or nickname you like!</p>
-        <p> (please use alphanumeric characters and dashes only) </p>
-      <% end %>
-      
-    </div>
-  </section>
-
-
-  <section id="finalize-page-partner">
-   <div class="centered">
-      <h1>Your Love</h1>
-      <h2>Would you like your love to be notified by email?</h2>
-      <%= f.text_field :partner_name, class: 'form-control', placeholder: "Your love's Name" %>
-      <p> First name  Last name </p>
-      <%= f.text_field :partner_email, class: 'form-control', placeholder: "Your love's e-mail" %>
-      <p> Leave the email field blank otherwise </p>
-      <h2>We can send a delicate premium crafted thick-paper copy of your gift to your beloved one !</h2>
-      <% unless @finalize.launch_into_space %>
-        <p> Receive this luxury good for just 50$ </p>
-      <% else %>
-        <p> Receive this luxury good for free !</p>
-      <% end %>
-      <%= f.text_field :mail_street, class: 'form-control', placeholder: "Street" %>
-      <%= f.text_field :mail_street2, class: 'form-control', placeholder: "Street 2" %>
-
-      <div class="centered" id="zip-and-city" style= "width: 300px; height: 40px;">
-        <div>
-        <%= f.text_field :mail_cp, class: 'form-control' , style: "float: left; width: 100px; margin-top: 20px; margin-left: 0px; margin-right: 0px; margin-bottom: 30px;", placeholder: "ZIP" %>
-        </div>
-        <div>
-        <%= f.text_field :mail_city, class: 'form-control', style: "float: right; width: 200px; margin-top: 20px; margin-right: 0px; margin-left: 0px; margin-bottom: 30px;", placeholder: "City" %>
-        </div>
-      </div>
-      <%= f.text_field :mail_state, class: 'form-control', placeholder: "State" %>
-      <%= f.text_field :mail_country, class: 'form-control', placeholder: "Country" %>
-
-      <p> Leave the fields blank otherwise </p>
-      <p> Don't forget to mention the name </p>
-
-   </div>
  </section>
 
 
- <section id="finalize-page-user">
-   <div class="centered">
-    <h1>You</h1>
-    <h2>Your coordinates:</h2>
-    <p> You can contact us at any time of the day or night if something was not perfect or if you want to modify anything ! </br>Love lives around the clock !</p>
-    <%= fields_for @finalize.user do |user_form| %>
-
-    <%= user_form.text_field :name, class: 'form-control', value: "", placeholder: "First name" %>
-
-    <%= user_form.text_field :email, class: 'form-control', value: "", placeholder: "Email" %>
-
-    <%= user_form.password_field :password, class: 'form-control', placeholder: "Password" %>
-
-    <%= user_form.password_field :password_confirmation, class: 'form-control', placeholder: "Password confirmation" %>
+ <section id="finalize-page-secret">
+  <%= form_for @finalize, url: { action: "check_finalize"}, method: :patch do |f| %> 
+  <%= f.hidden_field :launch_into_space %>        
+  <%= render 'shared/error_messages', object: @finalize %>
+  <div class="centered">
+    <h1>Your Secret Key</h1>
+    <h2>Here is the secret key that will reveal your heart:</h2>
+    <%= f.text_field :secret_key, class: 'form-control', value: @finalize.assigned_secret, placeholder: "Your secret key" %>
+    <% unless @finalize.launch_into_space %>
+    <p> Change for a personalized secret key (+30$) </p>
+    <p> (please use alphanumeric characters and dashes only) </p>
+    <% else %>
+    <p> Change for a personalized secret key with any code or nickname you like!</p>
+    <p> (please use alphanumeric characters and dashes only) </p>
     <% end %>
-    <%= f.submit "Make the last step", class: "btn btn-large btn-primary bigger-hover", id:"btn-access-payment" %>
-    
-    <% end %>
+    <br/>
+       
+      <div class="squaredFour centered" style="width: 300px;">
+      <p class="">Let the message of the heart be displayed from the heart wall with a click.</p>
+      <%= f.check_box :content_public, id: "squaredFour" %>
+      <label for="squaredFour" style="margin-left: -13px; margin-top: 50px;"></label>
+      
+      </div>
+
   </div>
+</section>
+
+
+<section id="finalize-page-partner">
+ <div class="centered">
+  <h1>Your Love</h1>
+  <h2>Would you like your love to be notified by email?</h2>
+  <%= f.text_field :partner_name, class: 'form-control', placeholder: "Your love's Name" %>
+  <p> First name  Last name </p>
+  <%= f.text_field :partner_email, class: 'form-control', placeholder: "Your love's e-mail" %>
+  <p> Leave the email field blank otherwise </p>
+  <h2>We can send a delicate premium crafted thick-paper copy of your gift to your beloved one !</h2>
+  <% unless @finalize.launch_into_space %>
+  <p> Receive this luxury good for just 50$ </p>
+  <% else %>
+  <p> Receive this luxury good for free !</p>
+  <% end %>
+  <%= f.text_field :mail_street, class: 'form-control', placeholder: "Street" %>
+  <%= f.text_field :mail_street2, class: 'form-control', placeholder: "Street 2" %>
+
+  <div class="centered" id="zip-and-city" style= "width: 300px; height: 40px;">
+    <div>
+      <%= f.text_field :mail_cp, class: 'form-control' , style: "float: left; width: 100px; margin-top: 20px; margin-left: 0px; margin-right: 0px; margin-bottom: 30px;", placeholder: "ZIP" %>
+    </div>
+    <div>
+      <%= f.text_field :mail_city, class: 'form-control', style: "float: right; width: 200px; margin-top: 20px; margin-right: 0px; margin-left: 0px; margin-bottom: 30px;", placeholder: "City" %>
+    </div>
+  </div>
+  <%= f.text_field :mail_state, class: 'form-control', placeholder: "State" %>
+  <%= f.text_field :mail_country, class: 'form-control', placeholder: "Country" %>
+
+  <p> Leave the fields blank otherwise </p>
+  <p> Don't forget to mention the name </p>
+
+</div>
+</section>
+
+
+<section id="finalize-page-user">
+ <div class="centered">
+  <h1>You</h1>
+  <h2>Your coordinates:</h2>
+  <p> You can contact us at any time of the day or night if something was not perfect or if you want to modify anything ! </br>Love lives around the clock !</p>
+  <%= fields_for @finalize.user do |user_form| %>
+
+  <%= user_form.text_field :name, class: 'form-control', value: "", placeholder: "First name" %>
+
+  <%= user_form.text_field :email, class: 'form-control', value: "", placeholder: "Email" %>
+
+  <%= user_form.password_field :password, class: 'form-control', placeholder: "Password" %>
+
+  <%= user_form.password_field :password_confirmation, class: 'form-control', placeholder: "Password confirmation" %>
+  <% end %>
+  <%= f.submit "Make the last step", class: "btn btn-large btn-primary bigger-hover", id:"btn-access-payment" %>
+
+  <% end %>
+</div>
 </section>
 

@@ -2,34 +2,46 @@
 <% if @heart_items.any? %>
 	<div class="heart-display-feed">
 		<% @heart_items.each do |heart_item| %>
-		
 
-			<%if heart_item.secret_key == "vip-01" %>
-				<div class="heart heart-vip" id="<%= heart_item.id %>">
+			<%if heart_item.content_public?%>
+				<%= link_to "/secret/#{heart_item.secret_key.to_s}" do %>
+					<%if heart_item.launch_into_space?%>
+						<div class="heart heart-rocket bigger-hover" id="<%= heart_item.id %>">	
+					<%elsif heart_item.launch_into_space?%>
+						<div class="heart heart-rocket bigger-hover" id="<%= heart_item.id %>">	
+					<% end %>
 					<span class="content"><%= heart_item.name1 %></span>
 					<span class="content">&amp;</span>
 					<span class="content"><%= heart_item.name2 %></span>
-			<%elsif heart_item.launch_into_space? %>
-				<div class="heart heart-rocket" id="<%= heart_item.id %>">
-					<span class="content"><%= heart_item.name1 %></span>
-					<span class="content">&amp;</span>
-					<span class="content"><%= heart_item.name2 %></span>
+					<% if signed_in? %>
+						<% if current_user.admin? %>
+							<%= link_to "delete", heart_item, method: :delete, style: "color: #7fbadc;",
+								data: { confirm: "You sure?" },
+										title: heart_item.content %>
+						<% end %>
+					<% end %>
+						</div>
+				<% end %>
 			<%else%>
-				<div class="heart" id="<%= heart_item.id %>">
-					<span class="content"><%= heart_item.name1 %></span>
-					<span class="content">&amp;</span>
-					<span class="content"><%= heart_item.name2 %></span>
-			<% end %>
-		 
+				<%if heart_item.secret_key == "vip-01" %>
+					<div class="heart heart-vip">	
+				<%elsif heart_item.launch_into_space? %>
+					<div class="heart heart-rocket" id="<%= heart_item.id %>">
+				<%else%>
+					<div class="heart" id="<%= heart_item.id %>">		
+				<% end %>
+				<span class="content"><%= heart_item.name1 %></span>
+				<span class="content">&amp;</span>
+				<span class="content"><%= heart_item.name2 %></span>
 				<% if signed_in? %>
 					<% if current_user.admin? %>
 						<%= link_to "delete", heart_item, method: :delete, style: "color: #7fbadc;",
-						data: { confirm: "You sure?" },
-						title: heart_item.content %>
+							data: { confirm: "You sure?" },
+								title: heart_item.content %>
 					<% end %>
 				<% end %>
-			</div>
-
+				</div>
+			<% end %>
 		<% end %>
 	</div>
 <% end %>

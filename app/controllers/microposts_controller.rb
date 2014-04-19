@@ -332,7 +332,7 @@ end
 
     def finalize_params
     	params.require(:micropost).permit(:launch_into_space, :secret_key, :partner_name, :partner_email, 
-    		:mail_street, :mail_street2, :mail_cp, :mail_city, :mail_state, :mail_country)
+    		:mail_street, :mail_street2, :mail_cp, :mail_city, :mail_state, :mail_country, :content_public)
     end
 
     def user_params
