@@ -4,7 +4,7 @@
 		<% @heart_items.each do |heart_item| %>
 
 			<%if heart_item.content_public?%>
-				<%= link_to "/secret/#{heart_item.secret_key.to_s}" do %>
+				<a href=<%="/secret/#{heart_item.secret_key.to_s}"%>>
 					<%if heart_item.launch_into_space?%>
 						<div class="heart heart-rocket bigger-hover" id="<%= heart_item.id %>">	
 					<%elsif heart_item.launch_into_space?%>
@@ -21,7 +21,7 @@
 						<% end %>
 					<% end %>
 						</div>
-				<% end %>
+				</a>
 			<%else%>
 				<%if heart_item.secret_key == "vip-01" %>
 					<div class="heart heart-vip">	

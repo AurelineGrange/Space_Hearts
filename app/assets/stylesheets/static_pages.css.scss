@@ -6,7 +6,7 @@
 /* MAIN COLORS */
 /*-CHOICE PAGE */
 /*- FINALIZE PAGE */
-/*- PAYMENT PAGE */
+/*- DESCRIPTION PAGE */
 
 
 /* MAIN COLORS */
@@ -30,8 +30,8 @@ $grayLight: #bbb;
 
 #choice-page-main-title{
   padding-top:80px;
-    padding-bottom:80px;
-    background-color: $color2;
+  padding-bottom:80px;
+  background-color: $color2;
 
 }
 
@@ -39,8 +39,8 @@ $grayLight: #bbb;
 
 #choice-page-vip-section{
   padding-top:80px;
-    padding-bottom:80px;
-    background-color: $color1;
+  padding-bottom:80px;
+  background-color: $color1;
 
 }
 
@@ -96,7 +96,7 @@ $grayLight: #bbb;
     padding-right: 10px;
     padding-left: 10px;
     overflow: auto;
-}
+  }
 }
 
 #finalize-page-partner{
@@ -135,11 +135,11 @@ $grayLight: #bbb;
     padding-right: 10px;
     padding-left: 10px;
     overflow: auto;
-}
+  }
 
   #zip-and-city{
     text-align: center;
-    }
+  }
 
   #zip-and-city .form-control {
     text-align: center;
@@ -151,7 +151,7 @@ $grayLight: #bbb;
     overflow: auto;
     max-width: 145px;
 
-    }
+  }
 }
 
 
@@ -191,8 +191,72 @@ $grayLight: #bbb;
     padding-right: 10px;
     padding-left: 10px;
     overflow: auto;
-}
+  }
 }
 
 
-/*------------ PAYMENT PAGE ------------ */
+/*------------ DESCRIPTION PAGE ------------ */
+
+
+@-webkit-keyframes spiral {
+  0%   { -webkit-transform: rotateZ(360deg);   }
+  100% { -webkit-transform: rotateZ(0deg); }
+}
+@keyframes spiral {
+  0%   { transform: rotateZ(360deg);   }
+  100% { transform: rotateZ(0deg); }
+}
+
+
+#animation-about-page {
+  background: transparent image-url('http://www.love-space-mission.com/assets/stellar_background_light_dots.png') no-repeat center;
+
+  border: 2px solid $color1;
+  margin-top: 10px;
+
+  h2{
+  font-size: 1.8em;
+  letter-spacing: -1px;
+  margin-bottom: 0px;
+  text-align: center;
+  font-weight: normal;
+  color: $colorText1;
+  }
+}
+
+#animation-about-page h1{
+    color: #fff !important;
+    font-size: 5em !important;
+    margin-top: -30px !important;
+    margin-bottom: 10px !important;
+  }
+
+
+#circle-container {
+  background: transparent image-url('http://www.love-space-mission.com/assets/orbiting-hearts.png') no-repeat center;
+  background-size: 25%;
+  min-height: 590px;
+
+}
+
+.circle-container {
+  margin-top: 220px;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-animation: spiral 20s infinite linear;
+  animation: spiral 30s infinite linear;
+
+  .circle {
+    border-radius: 50%/50%;
+    border: 0px solid #37b2e0;
+    position: absolute;
+    background: image-url('http://www.love-space-mission.com/assets/rocket.png') no-repeat center center;
+    background-size: 27%;
+  }
+}
+
+
+

@@ -754,7 +754,7 @@ a {
 /* Checkboxes from http://cssdeck.com/labs/css-checkbox-styles */
 
 input[type=checkbox] {
-  visibility: hidden;
+  /*visibility: hidden;*/
 }
 
 /* SLIDE ONE */
@@ -1839,7 +1839,6 @@ input:-webkit-autofill:focus {
 #heart-display{
   border-top: 2px solid $color1;
   background: image-url("stellar_background_light_dots.png") repeat center;
-
 }
 
 #heart-display-page {

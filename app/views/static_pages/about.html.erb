@@ -1,57 +1,77 @@
 <% provide(:title, "About") %>
-<section id="about-page-main-title">
-  <div class="center hero-unit">
-    <h1 id="home-title">Love Space Mission</h1>
 
-    <h2 style="font-size: 1.8em;">
+<section id= "animation-about-page">
+ <h1>Love Space Mission</h1>
+    <h2>
      We rocket a proof of your love into space to eternalize it ! </br></br> 
    </h2>
+  <div id= "circle-container">
+      <div class="circle-container"></div>
+        <script>(function() {
+        $(function() {
+          var circles, i, left, size, top, total, _i;
+          circles = "";
+          total = 1;
+          size = 570;
+          top = function(index) {
+            return -(size / 2) + (size / 2) * Math.cos((2 * Math.PI * (index - 1) / total) + Math.PI * 2/6);
+          };
+          left = function(index) {
+            return -(size / 2) + (size / 2) * Math.sin( (2 * Math.PI * (index - 1) / total) + Math.PI * 2/6);
+          };
+          for (i = _i = 1; 1 <= total ? _i <= total : _i >= total; i = 1 <= total ? ++_i : --_i) {
+            circles += "<div class=\"circle index-" + i + "\" style=\" width:" + size + "px; height:" + size + "px; top:" + (top(i)) + "px; left:" + (left(i)) + "px; \"></div>";
+          }
+          return $('.circle-container').html(circles);
+        });
 
-   <!-- <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %> -->
- </section>
+      }).call(this);
+      //@ sourceURL=pen.js
+      </script>
+  </div>
+</section>
 
-
- <section id="about-page-mission">
- <div class="centered" style="font-size: 2.6em; color: #fff;"> The mission 
+<section id="about-page-mission">
+ <div class="centered"><p style="font-size: 2.6em; color: #fff;"> The mission </p>
  </div>
  <div class="col-xs-0 col-md-1">
  </div>
  <div class="col-xs-12 col-md-6" style= "max-height: 480px;">
   <p class="mission-description" style="font-size 2em; color: #fff"> 
-      </br>Unique mission / experience </br>
-      </br>One day, some crazy guys decided they wanted to leave something to be remembered for ever. Only 506 people can send their love proof into space (mettre lien book you ticket) </br>
-      </br>As soon as we have the 506 reservations, we will launch the mission (most likely winter 2015) </br>
-      </br> Choice between 3 different packages - You write your love message (you can even customize it at home - add a few handnotes) and we'll rocket it into space for eternity</br>
-      </br>Your message will also be saved on the Heart Wall and accessible to your other half via a secret-key.</br>
-      </br>We will also send you a crafted version of your love message and a certificate of satellite's launch to preciously keep as a souvenir.</br>
+  </br>Unique mission / experience </br>
+</br>One day, some crazy guys decided they wanted to leave something to be remembered for ever. Only 506 people can send their love proof into space (mettre lien book you ticket) </br>
+</br>As soon as we have the 506 reservations, we will launch the mission (most likely winter 2015) </br>
+</br> Choice between 3 different packages - You write your love message (you can even customize it at home - add a few handnotes) and we'll rocket it into space for eternity</br>
+</br>Your message will also be saved on the Heart Wall and accessible to your other half via a secret-key.</br>
+</br>We will also send you a crafted version of your love message and a certificate of satellite's launch to preciously keep as a souvenir.</br>
 </p>
-  </div>
-  <div class="col-xs-12 col-md-4">
-    <%= image_tag("rocket_heart.png", style: "width: 70%; margin-left: auto; margin-right: 100px; min-width: 200px; margin-top:60px;")%>
-  </div>
+</div>
+<div class="col-xs-12 col-md-4">
+  <%= image_tag("rocket_heart.png", style: "width: 70%; margin-left: auto; margin-right: 100px; min-width: 200px; margin-top:60px;")%>
+</div>
 </section>
 
 
 
 <section id="about-page-technical-description">
- <div class="centered" style="font-size: 2.6em;"> The rocket and the satellite
+ <div class="centered"><p style="font-size: 2.6em; color: #fff;"> The rocket and the satellite </p>
  </div>
  <div class="col-xs-0 col-md-1">
  </div>
 
  <div class="col-xs-12 col-md-4">
-    <%= image_tag("rocket_india_circle.png", style: "width: 10%; margin-left: auto; margin-right: 100px; min-width: 150px; margin-top:60px;")%>
+  <%= image_tag("rocket_india_circle.png", style: "width: 10%; margin-left: auto; margin-right: 100px; min-width: 150px; margin-top:60px;")%>
 
-      <%= image_tag("satellite.png", style: "width: 50%; margin-left: 110px; margin-right: 10px; min-width: 150px; margin-top: -110px; margin-bottom: 40px;")%>
-  </div>
+  <%= image_tag("satellite.png", style: "width: 50%; margin-left: 110px; margin-right: 10px; min-width: 150px; margin-top: -110px; margin-bottom: 40px;")%>
+</div>
 
- <div class="col-xs-12 col-md-6" style= "max-height: 480px;">
+<div class="col-xs-12 col-md-6" style= "max-height: 480px;">
   <p class="mission-description" style="font-size 2em; color: #fff"> 
-      </br>Type of rocket</br>
-      </br>Satellite ejected from the rocket once an altitude of XXX km is reached</br>
-      </br>Satellite containing the love messages will be traveling for ever on an orbit of 90min, until someone discovers them... Who knows in what century !</br>
+  </br>Type of rocket</br>
+</br>Satellite ejected from the rocket once an altitude of XXX km is reached</br>
+</br>Satellite containing the love messages will be traveling for ever on an orbit of 90min, until someone discovers them... Who knows in what century !</br>
 </p>
-  </div>
+</div>
 </section>
 
 
@@ -59,10 +79,10 @@
 <section id="about-page-packages">
  <div class="centered" style="font-size: 2.6em;"> Packages
  </div>
-  <p class="mission-description" style="font-size 2em; color: #fff; text-align:center;"> 
-      </br>Put 3 types of packages in 3 boxes with 2 bullet points per packages - check : https://launchkey.com</br>
+ <p class="mission-description" style="font-size 2em; color: #fff; text-align:center;"> 
+ </br>Put 3 types of packages in 3 boxes with 2 bullet points per packages - check : https://launchkey.com</br>
 </p>
-  </div>
+</div>
 </section>
 
 

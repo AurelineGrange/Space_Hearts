@@ -12,7 +12,8 @@
 
 <%= form_for @micropost, url: { action: "pay_heart_auto"}, method: :patch do |f| %> 
 
-  <%= f.check_box :launch_into_space, value: 0 %>      
+  <%= f.check_box :launch_into_space, value: 0 %> 
+  <%= f.check_box :content_public, value: 0 %>           
   <%= f.text_area :content, placeholder: "love message" %>
   <%= f.text_area :extra, placeholder: "extra" %>
   <%= f.text_area :name1, placeholder: "name1" %>
