@@ -126,7 +126,7 @@ end
 	#-----------------------------------------
 	#pages for apps and external interractions
 	def heart_wall_xml
-		@heart_items= Micropost.where("launch_into_space = ?", true)
+		@heart_items= Micropost.where("allow_display = ?", true)
 		@diminished_heart_items= Array.new
 		@heart_items.each do |heart_item|
 			@diminished_heart_items.push(heart: [name1: heart_item.name1 , name2: heart_item.name2])

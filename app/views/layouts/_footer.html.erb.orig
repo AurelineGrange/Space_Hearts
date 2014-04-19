@@ -1,0 +1,16 @@
+<footer class="footer" id="footer">
+  <nav>
+    <ul>
+<<<<<<< HEAD
+      
+		<li><%= link_to "Privacy", privacy_path %></li>
+=======
+      <li><%= link_to "Contact", contact_path %></li>
+>>>>>>> app-ajax-problem
+      <li><%= link_to "Terms of use", terms_path %></li>
+      <li><%= link_to "Contact", contact_path %></li>
+      <li><%= link_to "About us", about_path %></li>
+      <li><%= link_to "Get in the Spaceship !", choice_path %></li>
+    </ul>
+  </nav>
+</footer>
