@@ -30,7 +30,8 @@ SpaceHearts::Application.routes.draw do
   match '/heart_wall_xml',    to: 'microposts#heart_wall_xml',      via: 'get'
   match '/create_heart_auto', to: 'microposts#create_heart_auto',   via: 'get'
   match '/pay_heart_auto',    to: 'microposts#pay_heart_auto',      via: 'patch'
-  match '/secret_key_actions',to: 'microposts#secret_key_actions',  via: 'get' 
+  match '/check_secret_key',  to: 'microposts#check_secret_key',  via: 'get' 
+
 
 
   match '/maintenance',       to: 'errors#maintenance',             via: 'get'
