@@ -1,5 +1,5 @@
 
-<section id="home" style="padding-bottom:40px;">
+<section id="home">
 
   <div class="center hero-unit">
     <div class="container">
@@ -41,12 +41,98 @@
 </section>
 
 
-<section id="heart-display">
+<!-- FACEBOOK - TWITTER - MASONRY BUTTONS -->
+<section id="social-network">
   <div class="container">
-    <div id="container" class="js-masonry"
-    data-masonry-options='{ "columnWidth": 110, "itemSelector": ".heart", "isFitWidth": true }'>
-    <%= render 'shared/heart_display' %>
+    <div id="control-buttons-homepage">
+
+      <div class="facebook button-facebook">
+        <i class="icon">
+          <i class="icon-facebook">
+          </i>
+        </i>
+        <div class="slide-facebook">
+          <p>
+            facebook
+          </p>
+        </div>
+        <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FThe-Love-Space-Mission%2F490488427729596&send=false&layout=button&width=80&show_faces=false&share=true&font&colorscheme=light&action=like&height=20&appId=568581339861351" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:80px; height:20px;" allowTransparency="true">
+        </iframe>
+      </div>
+
+      
+      <div class="twitter button">
+        <i class="icon">
+          <i class="icon-twitter">
+          </i>
+        </i>
+        <div class="slide">
+          <p>
+            twitter
+          </p>
+        </div>
+
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.love-space-mission.com" data-text="You can send your Love Proof into Space! Check out The Love Space Mission" data-via="lspacemission" data-count="none" data-hashtags="lspacemission">
+          Tweet
+        </a>
+        <script>
+        !function(d,s,id){
+          var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+          if(!d.getElementById(id)){
+            js=d.createElement(s);
+            js.id=id;
+            js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+            </script>
     </div>
-  </div>
-</section>
+
+          <div class="VIP button">
+            <i class="icon">
+              <i class="icon-VIP">
+                <%= image_tag "heart_small_white.png", style: "width: 16px; height: auto;"%>
+              </i>
+            </i>
+            <div class="slide">
+              <p>
+                VIP
+              </p>
+            </div>
+
+            <!-- Place this tag where you want the +1 button to render. -->
+            <div class="VIP">
+              <%= image_tag("button_VIP.png", style: "margin: auto;") %>
+            </div>
+          </div>
+
+
+          <div class="space button">
+            <i class="icon">
+              <i class="icon-space">
+                <%= image_tag "heart_small_white.png", style: "width: 16px; height: auto;"%>
+              </i>
+            </i>
+            <div class="slide">
+              <p>
+                Into Space
+              </p>
+            </div>
+          <div class="space">
+            <%= link_to( image_tag("button_space.png"), vip_path) %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    </section>
+
+
+
+    <!-- HEART WALL -->
+    <section id="heart-display">
+      <div class="container">
+        <div id="container" class="js-masonry"
+        data-masonry-options='{ "columnWidth": 110, "itemSelector": ".heart", "isFitWidth": true }'>
+        <%= render 'shared/heart_display' %>
+      </div>
+    </div>
+  </section>
 
