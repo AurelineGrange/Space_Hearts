@@ -637,6 +637,7 @@ p {
 }
 
 #btn-menu {
+  margin-right: 10px;
   color: $color3 !important;
   background-color: $color1 !important;
   border-color: $color1 !important;
@@ -2221,6 +2222,10 @@ input:-webkit-autofill:focus {
     width: 100%;
 }
 
+.slide:hover p {
+  font-weight: 700;
+}
+
 .slide-facebook p {
     font-family: Quicksand;
     font-weight: 400;
@@ -2270,9 +2275,10 @@ input:-webkit-autofill:focus {
     position: absolute;
 }
 
-.VIP iframe{
+.VIP iframe {
     margin-left: 400px;
     margin-right: 15px;
+    margin-top: 10px !important;
     position: absolute;
     z-index: 1;
 }
@@ -2281,6 +2287,7 @@ input:-webkit-autofill:focus {
     top: 10px;
     display: block;
     right: 22px;
+    margin-top: 10px;
     position: absolute;
     z-index: 1;
 }
@@ -2294,11 +2301,26 @@ input:-webkit-autofill:focus {
 }
 
 .VIP:hover .slide {
-    bottom: -40px;
+    bottom: 0px;
+    font-weight: 700;
 }
 
 .space:hover .slide {
-    left: -150px;
+    left: 38px;
+}
+
+.social-bigger-hover{
+    -moz-transition: all 400ms ease;
+    -webkit-transition: all 400ms ease;
+    -o-transition: all 400ms ease;
+    transition: all 400ms ease;
+}
+
+.social-bigger-hover:hover{
+   -moz-transform: scale(1.1) translate(0px);
+    -webkit-transform: scale(1.1) translate(0px);
+    -o-transform: scale(1.1) translate(0px);
+    transform: scale(1.1) translate(0px);
 }
 
 .facebook .icon, .facebook .slide-facebook {

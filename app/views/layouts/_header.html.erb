@@ -33,7 +33,7 @@
 
     
     <div class="btn-group pull-right">
-    </div>
+    
     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id="btn-menu">
       <span class="glyphicon glyphicon-align-justify"></span>
     </button>
@@ -42,36 +42,25 @@
       <li><%= link_to "Settings", edit_user_path(current_user) %></li>
       <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
     </ul>
+    </div>
+
+    <% else %>
+
+    <div class="btn-group pull-right">
+      <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id="btn-menu">
+        <span class="glyphicon glyphicon-align-justify"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu" id="btn-menu-dropdown">
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= link_to "Sign in", signin_path %></li>
+        <li><%= link_to "Sign up", signup_path %></li>
+        <li><%= link_to "About us", about_path %></li>
+        <li><%= link_to "Contact", contact_path %></li>
+      </ul>
+    </div>
+
+    <% end %>
+
   </div>
-  <div class="pull-right" style="max-height:30px; max-width:50px; margin-right:50px; margin-top: 8px;">
-    <div class="fb-like" data-href="https://www.facebook.com/pages/The-Love-Space-Mission/490488427729596" data-layout="button" data-action="like" data-show-faces="false" data-share="true"></div>
-  </div>
-
-  <div class="pull-right" style="max-height:30px; max-width:50px; margin-right: 10px; margin-top: 8px;">
-    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.love-space-mission.com" data-text="Check out The Love Space Mission ! You can send your love proof into space." data-via="lspacemission" data-related="lspacemission" data-count="none" data-hashtags="lspacemission">Tweet</a>
-  </div>
-  <div class="pull-right" style="max-height:30px; max-width:50px; margin-right: 100px; margin-top: 8px;">
-    <a href="https://twitter.com/lspacemission" class="twitter-follow-button" data-show-count="false">Follow @lspacemission</a>
-  </div>
-
-
-  <% else %>
-
-  <div class="btn-group pull-right">
-    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id="btn-menu">
-      <span class="glyphicon glyphicon-align-justify"></span>
-    </button>
-    <ul class="dropdown-menu" role="menu" id="btn-menu-dropdown">
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Sign in", signin_path %></li>
-      <li><%= link_to "Sign up", signup_path %></li>
-      <li><%= link_to "About us", about_path %></li>
-      <li><%= link_to "Contact", contact_path %></li>
-    </ul>
-  </div>
-
-  <% end %>
-
-</div>
 
 </nav>
