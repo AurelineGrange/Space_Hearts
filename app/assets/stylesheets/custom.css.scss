@@ -2386,14 +2386,21 @@ input:-webkit-autofill:focus {
 
 #about-page-packages {
   background-color: $color1;
-  padding-top: 30px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .packages-column{
-  background-color: $color1;
-  border: 1px solid #fff;
+  background-color: $color2;
+  border: 25px solid $color1;
   padding: 40px;
   text-align: justify;
+
+
+   -moz-transition: all 400ms ease;
+    -webkit-transition: all 400ms ease;
+    -o-transition: all 400ms ease;
+    transition: all 400ms ease;
 
   h1{
     font-size: 3em;
@@ -2405,8 +2412,25 @@ input:-webkit-autofill:focus {
     color: #fff;
   }
 
+  img{
+    margin-left: 15%;
+    width: 70%;
+  }
+  .img-container{
+    padding-left:40px;
+    padding-right:40px;
+    max-height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   &:hover{
     background-color: $color2;
+    background-size: cover;
+     -moz-transform: scale(1.02) translate(0px);
+    -webkit-transform: scale(1.02) translate(0px);
+    -o-transform: scale(1.02) translate(0px);
+    transform: scale(1.02) translate(0px);
   }
 }
 
