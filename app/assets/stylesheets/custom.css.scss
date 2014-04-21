@@ -1468,7 +1468,8 @@ input[type=checkbox] {
 }
 
 
-#heart-preview-header{background-color: $color1;}
+#heart-preview-header{background: $color1;}
+#heart-preview-header-space{background: $color2;}
 
 
 #heart-preview {
@@ -1476,7 +1477,6 @@ input[type=checkbox] {
   background: transparent image-url("heart_small.png") no-repeat center center;
   min-width: 803px;
   min-height: 741px;
-  background-color: $color1;
   margin: auto;
   margin-top: 0px;
   margin-bottom: 80px;
@@ -2354,7 +2354,7 @@ input:-webkit-autofill:focus {
   font-family: 'Quicksand', sans-serif;
   font-size: 1.2em;
   letter-spacing: -1px;
-  text-align: left;
+  text-align: justify;
   font-weight: normal;
   color: $grayLight;
   line-height: 1.7em;
@@ -2380,12 +2380,43 @@ input:-webkit-autofill:focus {
 
 #about-page-technical-description {
   background-color: #26292e;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 #about-page-packages {
-  background-color: #2f3238;
+  background-color: $color1;
   padding-top: 30px;
 }
+
+.packages-column{
+  background-color: $color1;
+  border: 1px solid #fff;
+  padding: 40px;
+  text-align: justify;
+
+  h1{
+    font-size: 3em;
+    color: #fff;
+  }
+
+  p{
+    margin-top: 20px;
+    color: #fff;
+  }
+
+  &:hover{
+    background-color: $color2;
+  }
+}
+
+#about-page-credibility-banner{
+  border-top: 1px solid #fff; 
+  border-bottom: 1px solid #fff; 
+  height: 410px;
+}
+
+
+
+
 

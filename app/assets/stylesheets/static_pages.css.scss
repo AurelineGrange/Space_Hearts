@@ -7,6 +7,7 @@
 /*-CHOICE PAGE */
 /*- FINALIZE PAGE */
 /*- DESCRIPTION PAGE */
+/*- CONFIGURE LOVE LETTER PAGE (post#new) */
 
 
 /* MAIN COLORS */
@@ -257,8 +258,8 @@ $grayLight: #bbb;
   left: -35%;
   
   margin-top: 10px;
-   -webkit-animation: spiral-clock 300s infinite linear;
-  animation: spiral-clock 300s infinite linear;
+   -webkit-animation: spiral-clock 250s infinite linear;
+  animation: spiral-clock 250s infinite linear;
   overflow:hidden;
 }
 
@@ -287,6 +288,19 @@ $grayLight: #bbb;
     background: image-url('rocket.png') no-repeat center center;
     background-size: 27%;
   }
+}
+
+
+/*-------------------------------------------- */
+/*- CONFIGURE LOVE LETTER PAGE (post#new) */
+
+
+#choice-space-configure-letter {
+  
+  background-color: $color2;
+  background: image-url('stellar_background_light_dots.png') no-repeat center;
+  border: 2px solid $color1;
+
 }
 
 
