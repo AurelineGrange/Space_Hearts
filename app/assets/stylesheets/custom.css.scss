@@ -311,6 +311,11 @@ textarea {
   margin-bottom: 10px;
 }
 
+em {
+  color: #de5e60;
+  font-weight: normal;
+  font-style: normal;
+}
 
 /* Users index */
 
@@ -383,6 +388,7 @@ h2 {
 }
 
 p {
+  font-family: 'Quicksand', sans-serif;
   font-size: 1.1em;
   line-height: 1.7em;
 }
@@ -2337,5 +2343,49 @@ input:-webkit-autofill:focus {
 
 .space .icon, .space .slide {
     background: #b62d41;
+}
+
+
+/* ______________________________ */
+/* ABOUT PAGE                     */
+
+
+.about-description {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  text-align: left;
+  font-weight: normal;
+  color: $grayLight;
+  line-height: 1.7em;
+  padding-right: 50px;
+}
+
+.title-about {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 3.5em;
+  letter-spacing: -1px;
+  text-align: center;
+  font-weight: normal;
+  color: $grayLight;
+  line-height: 1.7em;
+  margin-bottom: 40px;
+}
+
+#about-page-mission {
+  background-color: #2f3238;
+  padding-bottom: 130px;
+  padding-top: 30px;
+}
+
+#about-page-technical-description {
+  background-color: #26292e;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#about-page-packages {
+  background-color: #2f3238;
+  padding-top: 30px;
 }
 

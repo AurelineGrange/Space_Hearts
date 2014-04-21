@@ -21,16 +21,14 @@
     <h2>Here is the secret key that will reveal your heart:</h2>
     <%= f.text_field :secret_key, class: 'form-control', value: @finalize.assigned_secret, placeholder: "Your secret key" %>
     <% unless @finalize.launch_into_space %>
-    <p> Change for a personalized secret key (+30$) </p>
-    <p> (please use alphanumeric characters and dashes only) </p>
+    <p> Change for a personalized secret key (+30$) <br />(please use alphanumeric characters and dashes only) </p>
     <% else %>
-    <p> Change for a personalized secret key with any code or nickname you like!</p>
-    <p> (please use alphanumeric characters and dashes only) </p>
+    <p> Change for a personalized secret key with any code or nickname you like! <br />(please use alphanumeric characters and dashes only) </p>
     <% end %>
     <br/>
        
       <div class="squaredFour centered" style="width: 300px;">
-      <p class="">Let the message of the heart be displayed from the heart wall with a click.</p>
+      <p class="">Let your love message be displayed to everybody on the Heart Wall.</p>
       <%= f.check_box :content_public, id: "squaredFour", style: "visibility: hidden;" %>
       <label for="squaredFour" style="margin-left: -15px; margin-top: 50px;"></label>
       
@@ -45,7 +43,7 @@
   <h1>Your Love</h1>
   <h2>Would you like your love to be notified by email?</h2>
   <%= f.text_field :partner_name, class: 'form-control', placeholder: "Your love's Name" %>
-  <p> First name  Last name </p>
+  <p> First name  & Last name </p>
   <%= f.text_field :partner_email, class: 'form-control', placeholder: "Your love's e-mail" %>
   <p> Leave the email field blank otherwise </p>
   <h2>We can send a delicate premium crafted thick-paper copy of your gift to your beloved one !</h2>
