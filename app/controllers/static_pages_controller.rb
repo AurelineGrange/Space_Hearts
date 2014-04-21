@@ -11,6 +11,9 @@ class StaticPagesController < ApplicationController
   def privacy
   end
 
+  def payment_success
+  end
+
   def choice
     @user = User.new
   end

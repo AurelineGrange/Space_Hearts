@@ -19,7 +19,7 @@ class Micropost < ActiveRecord::Base
     if self.launch_into_space
       @price= 498 + @price
     else
-      @price= 20 + @price
+      @price= 25 + @price
       unless self.secret_key.downcase == self.assigned_secret.downcase
         @price= 30 + @price
       end

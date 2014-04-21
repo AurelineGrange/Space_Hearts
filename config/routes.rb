@@ -9,10 +9,11 @@ SpaceHearts::Application.routes.draw do
   match '/about',             to: 'static_pages#about',             via: 'get'
   match '/help',              to: 'static_pages#help',              via: 'get'
   match '/terms',             to: 'static_pages#terms',             via: 'get'
-  match '/privacy',           to: 'static_pages#privacy',            via: 'get'
+  match '/privacy',           to: 'static_pages#privacy',           via: 'get'
   match '/contact',           to: 'static_pages#contact',           via: 'get'
   match '/signup',            to: 'users#new',                      via: 'get'
   match '/signin',            to: 'sessions#new',                   via: 'get'
+  match '/you_rock',          to: 'static_pages#payment_success',   via: 'get'
 
   match '/secret',            to: 'static_pages#search_with_secret_key',    via: 'post'
   match '/secret/:secret_key',to: 'microposts#display',             via: 'get'

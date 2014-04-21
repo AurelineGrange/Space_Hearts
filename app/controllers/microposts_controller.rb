@@ -242,9 +242,9 @@ end
   			@posts= Micropost.where("launch_into_space = ?", false)
   			@title="Web posts only"	
   		elsif admin_params[:admin_action] == "list_action_required_posts"
-  			@posts= Micropost.where("allow_display = ? AND has_been_paid = ? OR 
-  				send_email_to_partner = ? AND email_sent = ? OR 
-  				send_paper_copy = ? AND paper_version_sent = ?", false, true, true, false, true, false)
+  			@posts= Micropost.where("(allow_display = ? AND has_been_paid = ? ) OR 
+  				( send_email_to_partner = ? AND email_sent = ? ) OR 
+  				( send_paper_copy = ? AND paper_version_sent = ? )", false, true, true, false, true, false)
   			@title="! Action Required !"
   		elsif admin_params[:admin_action] == "list_flagged_posts"
   			@posts= Micropost.where("flag = ?", true)
