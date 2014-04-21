@@ -1469,8 +1469,51 @@ input[type=checkbox] {
 
 
 #heart-preview-header{background: $color1;}
-#heart-preview-header-space{background: $color2;}
+#heart-preview-header-space{
+  padding-top: 40px;
+  padding-bottom: 80px;
+  background: $color2;
+  background: image-url('stellar_background_light_dots.png') no-repeat center;
+  background-size: cover;
+  border-bottom: 3px solid $color1;
 
+}
+
+
+#choice-space-configure-letter {
+  background-color: $color2;
+}
+
+#banner-love-letter{
+  background-color: $color1;
+  text-align: justify;
+  padding: 40px;
+  padding-top: 10px;
+  text-align: justify;
+
+  h1{
+    font-size: 3em;
+    color: $color3;
+  }
+
+  p{
+    margin-top: 20px;
+    color: #fff;
+  }
+
+  img{
+    margin-top: 60px;
+    margin-left: 0%;
+    width: 100%;
+  }
+  .img-container{
+    padding-left:40px;
+    padding-right:40px;
+    max-height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 
 #heart-preview {
 
@@ -2392,8 +2435,9 @@ input:-webkit-autofill:focus {
 
 .packages-column{
   background-color: $color2;
-  border: 25px solid $color1;
+  border: 20px solid $color1;
   padding: 40px;
+  padding-top: 10px;
   text-align: justify;
 
 
@@ -2425,6 +2469,13 @@ input:-webkit-autofill:focus {
   }
 
   &:hover{
+    h1{
+      font-weight: 400;
+      color: $color3;
+    }
+    p{
+      font-weight: 400;
+    }
     background-color: $color2;
     background-size: cover;
      -moz-transform: scale(1.02) translate(0px);
@@ -2435,8 +2486,8 @@ input:-webkit-autofill:focus {
 }
 
 #about-page-credibility-banner{
-  border-top: 1px solid #fff; 
-  border-bottom: 1px solid #fff; 
+  border-top: 1px solid $color1; 
+  border-bottom: 1px solid $color1; 
   height: 410px;
 }
 

@@ -34,8 +34,28 @@
 </div>
 
 <div class="row">
-  <%= link_to "Know the secret", about_path, class: "btn btn-primary bigger-hover", id: "btn-home-info" %>
-  <%= link_to "Get in the spaceship", choice_path, class: "btn btn-primary bigger-hover", id: "btn-home-choice" %>
+  <div class="col-xs-0 col-sm-1 col-md-2">
+  </div>
+  <div class="col-xs-12 col-sm-5 col-md-4">
+    <%= link_to "Know the secret", about_path, class: "btn btn-primary bigger-hover", id: "btn-home-info" %>
+  </div>
+  <div class="col-xs-12 col-sm-5 col-md-4">
+    <% if signed_in? %>
+    <%= link_to "Get in the spaceship", choice_path, class: "btn btn-primary bigger-hover", id: "btn-home-choice" %>  
+    <% else %>
+    <%= form_for(@user) do |f| %>
+    <%= f.hidden_field :name, value: "temporary" %>
+    <%= f.hidden_field :email, value: (1_000 + Random.rand(10_000_000)).to_s << "@example.com" %>
+    <%= f.hidden_field :password, value: "password" %>
+    <%= f.hidden_field :password_confirmation, value: "password" %>
+    <%= f.hidden_field :redirect_to, value: "choice-page" %>
+    <%= f.submit "Get in the spaceship", class: "btn btn-large btn-primary bigger-hover", id: "btn-home-choice" %>
+    <% end %>
+
+    <% end %>
+  </div>
+  <div class="col-xs-0 col-sm-1 col-md-2">
+  </div>
 </div>
 </div> 
 </section>
@@ -76,12 +96,12 @@
           Tweet
         </a>
         <script>
-        !function(d,s,id){
-          var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
-          if(!d.getElementById(id)){
-            js=d.createElement(s);
-            js.id=id;
-            js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+          !function(d,s,id){
+            var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+            if(!d.getElementById(id)){
+              js=d.createElement(s);
+              js.id=id;
+              js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
             </script>
           </div>
 

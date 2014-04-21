@@ -35,6 +35,7 @@ class StaticPagesController < ApplicationController
 
   def home
     @home_search= String.new
+    @user = User.new
     #only launch into space displayed here. but later only "has been paid=true" will be displayed
     @heart_items= Micropost.where("allow_display = ?", true)
   end

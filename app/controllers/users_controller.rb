@@ -27,6 +27,8 @@ class UsersController < ApplicationController
         redirect_to love_letter_path
       elsif @params[:redirect_to]== "choice-web"
         redirect_to configure_path
+      elsif @params[:redirect_to]== "choice-page"
+        redirect_to choice_path      
       else
       redirect_to @user
       end
