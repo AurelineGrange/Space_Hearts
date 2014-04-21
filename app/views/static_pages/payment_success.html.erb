@@ -1,16 +1,22 @@
 <% provide(:title, "You Rock") %>
 
-<section id="404">
+<section id="payment-success">
 	 <div class="center hero-unit">
 <h1 style= "margin-top: -50px; margin-bottom: 50px;"> YEAH ! You just did it ! </h1>
 <div class= "centered" style= "width: 50%; margin-left: auto; margin-right: auto;">
 <%= image_tag("rocket.png", style: "width: 50%; margin-left: auto; margin-right: auto; min-width: 200px;")%>
 </div>
-<h2 style="font-size: 1.6em"> Our team is already working hard on your message ! It will soon appear on the Heart Wall. <br />
-	If you have anything you would like to add, change, a special request, or just want to grab a starbucks with us, we would be glad to help you with all that! :) <br />
-	<%= link_to "Drop us a line", contact_path %>
-	</h2>
+<div class="row">
 
-	<%= link_to "Save me !", root_url, class: "btn btn-large btn-primary bigger-hover", id: "btn-reserve-preview" %>
+<div class="col-xs-2 col-sm-2 col-md-3"></div>
+		<div class="col-xs-8 col-sm-8 col-md-6">
+<h2 style="font-size: 1.6em; line-height: 30px;"> Our team is already working hard on your message ! It will soon appear on the Heart Wall. <br />
+	If you have anything you would like to add, change, a special request, or just want to grab a starbucks with us, we would be glad to help you with all that! :) <br />
+	<%= link_to "Drop us a line !", contact_path %>
+	</h2>
+	</div>
 </div>
+	<%= link_to "Back to the Heart Wall", root_url, class: "btn btn-large btn-primary bigger-hover", id: "btn-reserve-preview" %>
+</div>
+
 </section>

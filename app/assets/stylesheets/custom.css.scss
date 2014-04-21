@@ -730,6 +730,13 @@ $grayMediumLight: #eaeaea;
 /* ____________________________________ */
 /* MISCELLANEOUS */
 
+
+#payment-success{
+    background: image-url("stellar_background_light_dots.png") repeat center;
+    border-top: 11px solid $color1;
+    background-size: contain;
+}
+
 .debug_dump {
   clear: both;
   float: left;
