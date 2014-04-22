@@ -18,6 +18,7 @@
   /* Heart display */
 /* TERMS OF USE */
 /* SOCIAL NETWORKS */  
+/* ABOUT PAGE */  
 
 /* ____________________________________ */
 /* CHROME BUG FIX (fonts not displayed, need to be re-painted)*/
@@ -2443,7 +2444,7 @@ input:-webkit-autofill:focus {
 .packages-column{
   background-color: $color2;
   border: 20px solid $color1;
-  padding: 40px;
+  padding: 50px !important;
   padding-top: 10px;
   text-align: justify;
 
@@ -2458,6 +2459,14 @@ input:-webkit-autofill:focus {
     color: #fff;
   }
 
+  .title-packages {
+  text-align: center;
+  font-family: quicksand;
+  font-weight: 400 !important;
+  color: $colorText1 !important;
+  font-size: 3.4em;
+}
+
   p{
     margin-top: 20px;
     color: #fff;
@@ -2470,9 +2479,9 @@ input:-webkit-autofill:focus {
   .img-container{
     padding-left:40px;
     padding-right:40px;
-    max-height: 100px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 30px;
   }
 
   &:hover{
@@ -2480,9 +2489,15 @@ input:-webkit-autofill:focus {
       font-weight: 400;
       color: $color3;
     }
+
+    .title-packages {
+      color: $color3 !important;
+    }
+
     p{
       font-weight: 400;
     }
+
     background-color: $color2;
     background-size: cover;
      -moz-transform: scale(1.02) translate(0px);
@@ -2492,13 +2507,56 @@ input:-webkit-autofill:focus {
   }
 }
 
+
 #about-page-credibility-banner{
   border-top: 1px solid $color1; 
   border-bottom: 1px solid $color1; 
   height: 410px;
 }
 
+#bullet-description1 li {
+  padding-top: px;
+  margin: 0px;
+  font-size: 1.2em;
+  color: $colorText1 !important;
+  font-family: quicksand;
+  font-weight: 400 !important;
+}
+
+#bullet-description2 li {
+  padding-top: 0px;
+  margin: 0px;
+  font-size: 1.2em;
+  color: $colorText1 !important;
+  font-family: quicksand;
+  font-weight: 400 !important;
+}
+
+#bullet-description3 li {
+  padding-top: 0px;
+  margin: 0px;
+  font-size: 1.2em;
+  color: $colorText1 !important;
+  font-family: quicksand;
+  font-weight: 400 !important;
+}
+
+#bullet-description4 li {
+  padding-top: 0px;
+  margin: 0px;
+  font-size: 1.2em;
+  color: $colorText1 !important;
+  font-family: quicksand;
+  font-weight: 400 !important;
+}
 
 
+#conclusion-about {
+  text-align: center;
+  font-family: quicksand;
+  font-weight: 700 !important;
+  color: $colorText1 !important;
+  font-size: 1.2em;
+}
 
 
