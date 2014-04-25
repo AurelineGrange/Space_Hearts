@@ -1,5 +1,5 @@
 <% provide(:title, "Offer your Heart") %>
-<section id="heart-preview-header">
+<section id="heart-preview-header-space">
   <div class="col-xs-12 col-sm-12 col-sm-offset-0">
     <h1 id="preview-title">Offer your Heart</h1>
   </div> 
@@ -9,7 +9,7 @@
   <%= form_for(@micropost) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
 </div>
-<section style="background-color: #2f3238;">
+<section style="background-color: #26292e;">
   <div class="col-xs-12 col-sm-12 col-sm-offset-0">
     <div class="main-logo" id="heart-preview"> 
      <%= f.hidden_field :launch_into_space, value: false %> 
@@ -35,6 +35,30 @@
     </div>            <%end%>
   </div>
 </div>
+</section>
 
+
+</section>
+<section id="banner-love-letter">
+  <div class="row" style="margin-top:30px;">
+    <div class="col-xs-2 col-sm-0 col-md-1"></div>
+    <div class="col-xs-8 col-sm-4 col-md-3" style="margin-top: -1%">
+      <%= image_tag "heart-wall.png"%>  
+    </div>
+    <div class="col-xs-2 col-sm-1 col-md-1"></div>
+    <div class="col-xs-12 col-sm-6 col-md-6">
+    <div class="title-premium">Heart Wall</div>
+    <ul id="bullet-description4">
+     <li>You shape your love words on the mission's website.</li>
+<li>Your love message will be displayed on the Heart Wall.</li>
+<li>Your names will be sealed together on a letter and placed in the satellite to be rocketed into space.</li>
+<li>The secret key assigned to your love message will give you a private access to your message on the Heart Wall.</li>
+<li>You will be able to follow the satellite and your message's position on the website and on the mobile application. </li>
+</ul>
+<div id="conclusion-about">
+        Your love message will travel above your head for ever!
+      </div>
+    </div>
+  </div>
 </section>
 
