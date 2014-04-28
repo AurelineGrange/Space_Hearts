@@ -2,6 +2,10 @@
 <html>
 <head>
   <title><%= full_title(yield(:title)) %></title>
+  <meta property="og:title" content="The Love Space Mission"/>
+  <meta property="og:image" content="assets/lovespacemission.png"/>
+  <meta property="fb:admin" content="jch.gsc"/>
+
   <%= stylesheet_link_tag "application", media: "all","data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
@@ -9,6 +13,7 @@
   <link href='http://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag "prototype" %>
   <script src="/assets/javascripts/masonry.pkgd.min.js"></script>
+  <script src="/assets/javascripts/isotope.pkgd.min.js"></script>
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
