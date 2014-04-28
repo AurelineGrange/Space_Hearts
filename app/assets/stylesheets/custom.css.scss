@@ -527,6 +527,33 @@ p {
     transform: scale(1.1) translate(0px);
 }
 
+#btn-pink-standard {
+  font-family: 'Quicksand', sans-serif !important;
+  font-size: 40px !important;
+  background-color: $color3 !important;
+  border-color: $color3 !important;
+  color: #fff !important;
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 40px;
+  text-align: center !important;
+  height: auto;
+  font-weight: 400;
+    -moz-transition: all 400ms ease;
+    -webkit-transition: all 400ms ease;
+    -o-transition: all 400ms ease;
+    transition: all 400ms ease;
+}
+
+
+#btn-pink-standard:hover {
+    -moz-transform: scale(1.1) translate(0px);
+    -webkit-transform: scale(1.1) translate(0px);
+    -o-transform: scale(1.1) translate(0px);
+    transform: scale(1.1) translate(0px);
+}
+
 #btn-choice-vip {
   font-family: 'Quicksand', sans-serif !important;
   font-size: 40px !important;
@@ -2192,6 +2219,16 @@ input:-webkit-autofill:focus {
     -webkit-border-radius: 3px;
 }
 
+.button-sort {
+    background: transparent;
+    position: relative;
+    display: block;
+    float: left;
+    border: none;
+    height: 40px;
+    margin-top: -3px;
+}
+
 .button-facebook {
     background: transparent;
     position: relative;
@@ -2335,7 +2372,7 @@ input:-webkit-autofill:focus {
 .VIP iframe {
     margin-left: 400px;
     margin-right: 15px;
-    margin-top: 10px !important;
+    margin-top: 0px !important;
     position: absolute;
     z-index: 1;
 }

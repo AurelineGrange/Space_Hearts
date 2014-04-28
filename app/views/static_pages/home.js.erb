@@ -1,0 +1,21 @@
+// init Isotope
+var $container = $container.isotope({
+  getSortData: {
+    name: '.name',
+    symbol: '.symbol',
+    number: '.number parseInt',
+    category: '[data-category]',
+    weight: function( itemElem ) {
+      var weight = $( itemElem ).find('.weight').text();
+      return parseFloat( weight.replace( /[\(\)]/g, '') );
+    }
+  }
+});
+// sort items on button click
+$('#sorts').on( 'click', 'button', function() {
+  var sortByValue = $(this).attr('data-sort-by');
+  $container.isotope({ sortBy: sortByValue });
+});
+
+
+
