@@ -14,6 +14,10 @@ class StaticPagesController < ApplicationController
   def payment_success
   end
 
+  def qrcode
+    render partial: 'qrcode'
+  end
+
   def choice
     @user = User.new
   end

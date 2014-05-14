@@ -14,6 +14,9 @@ SpaceHearts::Application.routes.draw do
   match '/signup',            to: 'users#new',                      via: 'get'
   match '/signin',            to: 'sessions#new',                   via: 'get'
   match '/you_rock',          to: 'static_pages#payment_success',   via: 'get'
+  match '/qrcode',          to: 'static_pages#qrcode',   via: 'get'
+
+
 
   match '/secret',            to: 'static_pages#search_with_secret_key',    via: 'post'
   match '/secret/:secret_key',to: 'microposts#display',             via: 'get'
